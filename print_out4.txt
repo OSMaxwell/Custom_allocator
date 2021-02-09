@@ -4,105 +4,105 @@
 ~~~~~~~~~~USING CUSTOM ALLOCATOR~~~~~~~ 
 
 Tag    Operation                          Pointer             Size      Cntr 
-12     ArenaBufferAllocator(..)           0x7ffc8c67c7b0      20        0    
-12     ArenaBufferAllocator(..& other)    0x7ffc8c67c7b0      20        0    
-12     ~ArenaBufferAllocator()            0x7ffc8c67c7b0                0    
+12     ArenaBufferAllocator(..)           0x7fffe6b84210      20        0    
+12     ArenaBufferAllocator(..& other)    0x7fffe6b84210      20        0    
+12     ~ArenaBufferAllocator()            0x7fffe6b84210                0    
 
 Starting:          .push_back
 Tag    Operation                          Pointer             Size      Cntr 
-12     allocate(..)                       0x7ffc8c67c7b0      1         
-12     ***Construct(..)                   0x7ffc8c67c7b0      77        
-12     allocate(..)                       0x7ffc8c67c7b0      2         
-12     ***Construct(..)                   0x7ffc8c67c7b4      77        
-12     ***Construct(..)                   0x7ffc8c67c7b0      77        
-12     destroy(..)                        0x7ffc8c67c7b0                
-12     deallocate(..)                     0x7ffc8c67c7b0      1         
-12     allocate(..)                       0x7ffc8c67c7b0      4         
-12     ***Construct(..)                   0x7ffc8c67c7b8      77        
-12     ***Construct(..)                   0x7ffc8c67c7b0      77        
-12     ***Construct(..)                   0x7ffc8c67c7b4      77        
-12     destroy(..)                        0x7ffc8c67c7b0                
-12     destroy(..)                        0x7ffc8c67c7b4                
-12     deallocate(..)                     0x7ffc8c67c7b0      2         
-12     ***Construct(..)                   0x7ffc8c67c7bc      77        
-12     allocate(..)                       0x7ffc8c67c7b0      8         
-12     ***Construct(..)                   0x7ffc8c67c7c0      77        
-12     ***Construct(..)                   0x7ffc8c67c7b0      77        
-12     ***Construct(..)                   0x7ffc8c67c7b4      77        
-12     ***Construct(..)                   0x7ffc8c67c7b8      77        
-12     ***Construct(..)                   0x7ffc8c67c7bc      77        
-12     destroy(..)                        0x7ffc8c67c7b0                
-12     destroy(..)                        0x7ffc8c67c7b4                
-12     destroy(..)                        0x7ffc8c67c7b8                
-12     destroy(..)                        0x7ffc8c67c7bc                
-12     deallocate(..)                     0x7ffc8c67c7b0      4         
-12     ***Construct(..)                   0x7ffc8c67c7c4      77        
-12     ***Construct(..)                   0x7ffc8c67c7c8      77        
-12     ***Construct(..)                   0x7ffc8c67c7cc      77        
-12     allocate(..)                       0x7ffc8c67c7b0      16        
-12     ***Construct(..)                   0x7ffc8c67c7d0      77        
-12     ***Construct(..)                   0x7ffc8c67c7b0      77        
-12     ***Construct(..)                   0x7ffc8c67c7b4      77        
-12     ***Construct(..)                   0x7ffc8c67c7b8      77        
-12     ***Construct(..)                   0x7ffc8c67c7bc      77        
-12     ***Construct(..)                   0x7ffc8c67c7c0      77        
-12     ***Construct(..)                   0x7ffc8c67c7c4      77        
-12     ***Construct(..)                   0x7ffc8c67c7c8      77        
-12     ***Construct(..)                   0x7ffc8c67c7cc      77        
-12     destroy(..)                        0x7ffc8c67c7b0                
-12     destroy(..)                        0x7ffc8c67c7b4                
-12     destroy(..)                        0x7ffc8c67c7b8                
-12     destroy(..)                        0x7ffc8c67c7bc                
-12     destroy(..)                        0x7ffc8c67c7c0                
-12     destroy(..)                        0x7ffc8c67c7c4                
-12     destroy(..)                        0x7ffc8c67c7c8                
-12     destroy(..)                        0x7ffc8c67c7cc                
-12     deallocate(..)                     0x7ffc8c67c7b0      8         
-12     ***Construct(..)                   0x7ffc8c67c7d4      77        
-12     ***Construct(..)                   0x7ffc8c67c7d8      77        
-12     ***Construct(..)                   0x7ffc8c67c7dc      77        
-12     ***Construct(..)                   0x7ffc8c67c7e0      77        
-12     ***Construct(..)                   0x7ffc8c67c7e4      77        
-12     ***Construct(..)                   0x7ffc8c67c7e8      77        
-12     ***Construct(..)                   0x7ffc8c67c7ec      77        
-12     allocate(..)                       0x7ffc8c67c7b0      20        
-12     ***Construct(..)                   0x7ffc8c67c7f0      77        
-12     ***Construct(..)                   0x7ffc8c67c7b0      77        
-12     ***Construct(..)                   0x7ffc8c67c7b4      77        
-12     ***Construct(..)                   0x7ffc8c67c7b8      77        
-12     ***Construct(..)                   0x7ffc8c67c7bc      77        
-12     ***Construct(..)                   0x7ffc8c67c7c0      77        
-12     ***Construct(..)                   0x7ffc8c67c7c4      77        
-12     ***Construct(..)                   0x7ffc8c67c7c8      77        
-12     ***Construct(..)                   0x7ffc8c67c7cc      77        
-12     ***Construct(..)                   0x7ffc8c67c7d0      77        
-12     ***Construct(..)                   0x7ffc8c67c7d4      77        
-12     ***Construct(..)                   0x7ffc8c67c7d8      77        
-12     ***Construct(..)                   0x7ffc8c67c7dc      77        
-12     ***Construct(..)                   0x7ffc8c67c7e0      77        
-12     ***Construct(..)                   0x7ffc8c67c7e4      77        
-12     ***Construct(..)                   0x7ffc8c67c7e8      77        
-12     ***Construct(..)                   0x7ffc8c67c7ec      77        
-12     destroy(..)                        0x7ffc8c67c7b0                
-12     destroy(..)                        0x7ffc8c67c7b4                
-12     destroy(..)                        0x7ffc8c67c7b8                
-12     destroy(..)                        0x7ffc8c67c7bc                
-12     destroy(..)                        0x7ffc8c67c7c0                
-12     destroy(..)                        0x7ffc8c67c7c4                
-12     destroy(..)                        0x7ffc8c67c7c8                
-12     destroy(..)                        0x7ffc8c67c7cc                
-12     destroy(..)                        0x7ffc8c67c7d0                
-12     destroy(..)                        0x7ffc8c67c7d4                
-12     destroy(..)                        0x7ffc8c67c7d8                
-12     destroy(..)                        0x7ffc8c67c7dc                
-12     destroy(..)                        0x7ffc8c67c7e0                
-12     destroy(..)                        0x7ffc8c67c7e4                
-12     destroy(..)                        0x7ffc8c67c7e8                
-12     destroy(..)                        0x7ffc8c67c7ec                
-12     deallocate(..)                     0x7ffc8c67c7b0      16        
-12     ***Construct(..)                   0x7ffc8c67c7f4      77        
-12     ***Construct(..)                   0x7ffc8c67c7f8      77        
-12     ***Construct(..)                   0x7ffc8c67c7fc      77        
+12     allocate(..)                       0x7fffe6b84210      1         
+12     ***Construct(..)                   0x7fffe6b84210      77        
+12     allocate(..)                       0x7fffe6b84210      2         
+12     ***Construct(..)                   0x7fffe6b84214      77        
+12     ***Construct(..)                   0x7fffe6b84210      77        
+12     destroy(..)                        0x7fffe6b84210                
+12     deallocate(..)                     0x7fffe6b84210      1         
+12     allocate(..)                       0x7fffe6b84210      4         
+12     ***Construct(..)                   0x7fffe6b84218      77        
+12     ***Construct(..)                   0x7fffe6b84210      77        
+12     ***Construct(..)                   0x7fffe6b84214      77        
+12     destroy(..)                        0x7fffe6b84210                
+12     destroy(..)                        0x7fffe6b84214                
+12     deallocate(..)                     0x7fffe6b84210      2         
+12     ***Construct(..)                   0x7fffe6b8421c      77        
+12     allocate(..)                       0x7fffe6b84210      8         
+12     ***Construct(..)                   0x7fffe6b84220      77        
+12     ***Construct(..)                   0x7fffe6b84210      77        
+12     ***Construct(..)                   0x7fffe6b84214      77        
+12     ***Construct(..)                   0x7fffe6b84218      77        
+12     ***Construct(..)                   0x7fffe6b8421c      77        
+12     destroy(..)                        0x7fffe6b84210                
+12     destroy(..)                        0x7fffe6b84214                
+12     destroy(..)                        0x7fffe6b84218                
+12     destroy(..)                        0x7fffe6b8421c                
+12     deallocate(..)                     0x7fffe6b84210      4         
+12     ***Construct(..)                   0x7fffe6b84224      77        
+12     ***Construct(..)                   0x7fffe6b84228      77        
+12     ***Construct(..)                   0x7fffe6b8422c      77        
+12     allocate(..)                       0x7fffe6b84210      16        
+12     ***Construct(..)                   0x7fffe6b84230      77        
+12     ***Construct(..)                   0x7fffe6b84210      77        
+12     ***Construct(..)                   0x7fffe6b84214      77        
+12     ***Construct(..)                   0x7fffe6b84218      77        
+12     ***Construct(..)                   0x7fffe6b8421c      77        
+12     ***Construct(..)                   0x7fffe6b84220      77        
+12     ***Construct(..)                   0x7fffe6b84224      77        
+12     ***Construct(..)                   0x7fffe6b84228      77        
+12     ***Construct(..)                   0x7fffe6b8422c      77        
+12     destroy(..)                        0x7fffe6b84210                
+12     destroy(..)                        0x7fffe6b84214                
+12     destroy(..)                        0x7fffe6b84218                
+12     destroy(..)                        0x7fffe6b8421c                
+12     destroy(..)                        0x7fffe6b84220                
+12     destroy(..)                        0x7fffe6b84224                
+12     destroy(..)                        0x7fffe6b84228                
+12     destroy(..)                        0x7fffe6b8422c                
+12     deallocate(..)                     0x7fffe6b84210      8         
+12     ***Construct(..)                   0x7fffe6b84234      77        
+12     ***Construct(..)                   0x7fffe6b84238      77        
+12     ***Construct(..)                   0x7fffe6b8423c      77        
+12     ***Construct(..)                   0x7fffe6b84240      77        
+12     ***Construct(..)                   0x7fffe6b84244      77        
+12     ***Construct(..)                   0x7fffe6b84248      77        
+12     ***Construct(..)                   0x7fffe6b8424c      77        
+12     allocate(..)                       0x7fffe6b84210      20        
+12     ***Construct(..)                   0x7fffe6b84250      77        
+12     ***Construct(..)                   0x7fffe6b84210      77        
+12     ***Construct(..)                   0x7fffe6b84214      77        
+12     ***Construct(..)                   0x7fffe6b84218      77        
+12     ***Construct(..)                   0x7fffe6b8421c      77        
+12     ***Construct(..)                   0x7fffe6b84220      77        
+12     ***Construct(..)                   0x7fffe6b84224      77        
+12     ***Construct(..)                   0x7fffe6b84228      77        
+12     ***Construct(..)                   0x7fffe6b8422c      77        
+12     ***Construct(..)                   0x7fffe6b84230      77        
+12     ***Construct(..)                   0x7fffe6b84234      77        
+12     ***Construct(..)                   0x7fffe6b84238      77        
+12     ***Construct(..)                   0x7fffe6b8423c      77        
+12     ***Construct(..)                   0x7fffe6b84240      77        
+12     ***Construct(..)                   0x7fffe6b84244      77        
+12     ***Construct(..)                   0x7fffe6b84248      77        
+12     ***Construct(..)                   0x7fffe6b8424c      77        
+12     destroy(..)                        0x7fffe6b84210                
+12     destroy(..)                        0x7fffe6b84214                
+12     destroy(..)                        0x7fffe6b84218                
+12     destroy(..)                        0x7fffe6b8421c                
+12     destroy(..)                        0x7fffe6b84220                
+12     destroy(..)                        0x7fffe6b84224                
+12     destroy(..)                        0x7fffe6b84228                
+12     destroy(..)                        0x7fffe6b8422c                
+12     destroy(..)                        0x7fffe6b84230                
+12     destroy(..)                        0x7fffe6b84234                
+12     destroy(..)                        0x7fffe6b84238                
+12     destroy(..)                        0x7fffe6b8423c                
+12     destroy(..)                        0x7fffe6b84240                
+12     destroy(..)                        0x7fffe6b84244                
+12     destroy(..)                        0x7fffe6b84248                
+12     destroy(..)                        0x7fffe6b8424c                
+12     deallocate(..)                     0x7fffe6b84210      16        
+12     ***Construct(..)                   0x7fffe6b84254      77        
+12     ***Construct(..)                   0x7fffe6b84258      77        
+12     ***Construct(..)                   0x7fffe6b8425c      77        
 
  i    |vec[i]|
 0     |77    |
@@ -131,37 +131,37 @@ Tag    Operation                          Pointer             Size      Cntr
 
 ~~~~~~~~~~~~END Vec2~~~~~~~~~~~~
 
-45     ArenaBufferAllocator(..)           0x7ffc8c67c760      20        0    
-45     ArenaBufferAllocator(..& other)    0x7ffc8c67c760      20        0    
-45     ~ArenaBufferAllocator()            0x7ffc8c67c760                0    
+45     ArenaBufferAllocator(..)           0x7fffe6b841c0      20        0    
+45     ArenaBufferAllocator(..& other)    0x7fffe6b841c0      20        0    
+45     ~ArenaBufferAllocator()            0x7fffe6b841c0                0    
 
 Starting:          .push_back
-45     allocate(..)                       0x7ffc8c67c760      1         
-45     ***Construct(..)                   0x7ffc8c67c760      123       
-45     allocate(..)                       0x7ffc8c67c760      2         
-45     ***Construct(..)                   0x7ffc8c67c764      123       
-45     ***Construct(..)                   0x7ffc8c67c760      123       
-45     destroy(..)                        0x7ffc8c67c760                
-45     deallocate(..)                     0x7ffc8c67c760      1         
-45     allocate(..)                       0x7ffc8c67c760      4         
-45     ***Construct(..)                   0x7ffc8c67c768      123       
-45     ***Construct(..)                   0x7ffc8c67c760      123       
-45     ***Construct(..)                   0x7ffc8c67c764      123       
-45     destroy(..)                        0x7ffc8c67c760                
-45     destroy(..)                        0x7ffc8c67c764                
-45     deallocate(..)                     0x7ffc8c67c760      2         
-45     ***Construct(..)                   0x7ffc8c67c76c      123       
-45     allocate(..)                       0x7ffc8c67c760      8         
-45     ***Construct(..)                   0x7ffc8c67c770      123       
-45     ***Construct(..)                   0x7ffc8c67c760      123       
-45     ***Construct(..)                   0x7ffc8c67c764      123       
-45     ***Construct(..)                   0x7ffc8c67c768      123       
-45     ***Construct(..)                   0x7ffc8c67c76c      123       
-45     destroy(..)                        0x7ffc8c67c760                
-45     destroy(..)                        0x7ffc8c67c764                
-45     destroy(..)                        0x7ffc8c67c768                
-45     destroy(..)                        0x7ffc8c67c76c                
-45     deallocate(..)                     0x7ffc8c67c760      4         
+45     allocate(..)                       0x7fffe6b841c0      1         
+45     ***Construct(..)                   0x7fffe6b841c0      123       
+45     allocate(..)                       0x7fffe6b841c0      2         
+45     ***Construct(..)                   0x7fffe6b841c4      123       
+45     ***Construct(..)                   0x7fffe6b841c0      123       
+45     destroy(..)                        0x7fffe6b841c0                
+45     deallocate(..)                     0x7fffe6b841c0      1         
+45     allocate(..)                       0x7fffe6b841c0      4         
+45     ***Construct(..)                   0x7fffe6b841c8      123       
+45     ***Construct(..)                   0x7fffe6b841c0      123       
+45     ***Construct(..)                   0x7fffe6b841c4      123       
+45     destroy(..)                        0x7fffe6b841c0                
+45     destroy(..)                        0x7fffe6b841c4                
+45     deallocate(..)                     0x7fffe6b841c0      2         
+45     ***Construct(..)                   0x7fffe6b841cc      123       
+45     allocate(..)                       0x7fffe6b841c0      8         
+45     ***Construct(..)                   0x7fffe6b841d0      123       
+45     ***Construct(..)                   0x7fffe6b841c0      123       
+45     ***Construct(..)                   0x7fffe6b841c4      123       
+45     ***Construct(..)                   0x7fffe6b841c8      123       
+45     ***Construct(..)                   0x7fffe6b841cc      123       
+45     destroy(..)                        0x7fffe6b841c0                
+45     destroy(..)                        0x7fffe6b841c4                
+45     destroy(..)                        0x7fffe6b841c8                
+45     destroy(..)                        0x7fffe6b841cc                
+45     deallocate(..)                     0x7fffe6b841c0      4         
 
  i    |vec[i]|
 0     |123   |
@@ -174,9 +174,9 @@ Starting:          .push_back
 ------------------------------------------------------------------------
 
 Starting:           .pop_back
-45     destroy(..)                        0x7ffc8c67c770                
-45     destroy(..)                        0x7ffc8c67c76c                
-45     destroy(..)                        0x7ffc8c67c768                
+45     destroy(..)                        0x7fffe6b841d0                
+45     destroy(..)                        0x7fffe6b841cc                
+45     destroy(..)                        0x7fffe6b841c8                
 
  i    |vec[i]|
 0     |123   |
@@ -187,60 +187,60 @@ Starting:           .pop_back
 
 ~~~~~~~~~~~~END Vec3~~~~~~~~~~~~
 
-32     ArenaBufferAllocator(..)           0x7ffc8c67c6c0      15        0    
-32     ArenaBufferAllocator(..& other)    0x7ffc8c67c6c0      15        0    
-32     ~ArenaBufferAllocator()            0x7ffc8c67c6c0                0    
+32     ArenaBufferAllocator(..)           0x7fffe6b84120      15        0    
+32     ArenaBufferAllocator(..& other)    0x7fffe6b84120      15        0    
+32     ~ArenaBufferAllocator()            0x7fffe6b84120                0    
 
 Starting:          .push_back
 Tag    Operation                          Pointer             Size      Cntr 
-32     allocate(..)                       0x7ffc8c67c6c0      1         
-32     ***Construct(..)                   0x7ffc8c67c6c0      2147483584
-32     allocate(..)                       0x7ffc8c67c6c0      2         
-32     ***Construct(..)                   0x7ffc8c67c6c4      2147483584
-32     ***Construct(..)                   0x7ffc8c67c6c0      2147483647
-32     destroy(..)                        0x7ffc8c67c6c0                
-32     deallocate(..)                     0x7ffc8c67c6c0      1         
-32     allocate(..)                       0x7ffc8c67c6c0      4         
-32     ***Construct(..)                   0x7ffc8c67c6c8      2147483584
-32     ***Construct(..)                   0x7ffc8c67c6c0      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6c4      2147483647
-32     destroy(..)                        0x7ffc8c67c6c0                
-32     destroy(..)                        0x7ffc8c67c6c4                
-32     deallocate(..)                     0x7ffc8c67c6c0      2         
-32     ***Construct(..)                   0x7ffc8c67c6cc      2147483584
-32     allocate(..)                       0x7ffc8c67c6c0      8         
-32     ***Construct(..)                   0x7ffc8c67c6d0      2147483584
-32     ***Construct(..)                   0x7ffc8c67c6c0      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6c4      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6c8      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6cc      2147483647
-32     destroy(..)                        0x7ffc8c67c6c0                
-32     destroy(..)                        0x7ffc8c67c6c4                
-32     destroy(..)                        0x7ffc8c67c6c8                
-32     destroy(..)                        0x7ffc8c67c6cc                
-32     deallocate(..)                     0x7ffc8c67c6c0      4         
-32     ***Construct(..)                   0x7ffc8c67c6d4      2147483584
-32     ***Construct(..)                   0x7ffc8c67c6d8      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6dc      2147483647
-32     allocate(..)                       0x7ffc8c67c6c0      15        
-32     ***Construct(..)                   0x7ffc8c67c6e0      2147483583
-32     ***Construct(..)                   0x7ffc8c67c6c0      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6c4      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6c8      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6cc      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6d0      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6d4      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6d8      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6dc      2147483647
-32     destroy(..)                        0x7ffc8c67c6c0                
-32     destroy(..)                        0x7ffc8c67c6c4                
-32     destroy(..)                        0x7ffc8c67c6c8                
-32     destroy(..)                        0x7ffc8c67c6cc                
-32     destroy(..)                        0x7ffc8c67c6d0                
-32     destroy(..)                        0x7ffc8c67c6d4                
-32     destroy(..)                        0x7ffc8c67c6d8                
-32     destroy(..)                        0x7ffc8c67c6dc                
-32     deallocate(..)                     0x7ffc8c67c6c0      8         
+32     allocate(..)                       0x7fffe6b84120      1         
+32     ***Construct(..)                   0x7fffe6b84120      2147483584
+32     allocate(..)                       0x7fffe6b84120      2         
+32     ***Construct(..)                   0x7fffe6b84124      2147483584
+32     ***Construct(..)                   0x7fffe6b84120      2147483647
+32     destroy(..)                        0x7fffe6b84120                
+32     deallocate(..)                     0x7fffe6b84120      1         
+32     allocate(..)                       0x7fffe6b84120      4         
+32     ***Construct(..)                   0x7fffe6b84128      2147483584
+32     ***Construct(..)                   0x7fffe6b84120      2147483647
+32     ***Construct(..)                   0x7fffe6b84124      2147483647
+32     destroy(..)                        0x7fffe6b84120                
+32     destroy(..)                        0x7fffe6b84124                
+32     deallocate(..)                     0x7fffe6b84120      2         
+32     ***Construct(..)                   0x7fffe6b8412c      2147483584
+32     allocate(..)                       0x7fffe6b84120      8         
+32     ***Construct(..)                   0x7fffe6b84130      2147483584
+32     ***Construct(..)                   0x7fffe6b84120      2147483647
+32     ***Construct(..)                   0x7fffe6b84124      2147483647
+32     ***Construct(..)                   0x7fffe6b84128      2147483647
+32     ***Construct(..)                   0x7fffe6b8412c      2147483647
+32     destroy(..)                        0x7fffe6b84120                
+32     destroy(..)                        0x7fffe6b84124                
+32     destroy(..)                        0x7fffe6b84128                
+32     destroy(..)                        0x7fffe6b8412c                
+32     deallocate(..)                     0x7fffe6b84120      4         
+32     ***Construct(..)                   0x7fffe6b84134      2147483584
+32     ***Construct(..)                   0x7fffe6b84138      2147483647
+32     ***Construct(..)                   0x7fffe6b8413c      2147483647
+32     allocate(..)                       0x7fffe6b84120      15        
+32     ***Construct(..)                   0x7fffe6b84140      2147483583
+32     ***Construct(..)                   0x7fffe6b84120      2147483647
+32     ***Construct(..)                   0x7fffe6b84124      2147483647
+32     ***Construct(..)                   0x7fffe6b84128      2147483647
+32     ***Construct(..)                   0x7fffe6b8412c      2147483647
+32     ***Construct(..)                   0x7fffe6b84130      2147483647
+32     ***Construct(..)                   0x7fffe6b84134      2147483647
+32     ***Construct(..)                   0x7fffe6b84138      2147483647
+32     ***Construct(..)                   0x7fffe6b8413c      2147483647
+32     destroy(..)                        0x7fffe6b84120                
+32     destroy(..)                        0x7fffe6b84124                
+32     destroy(..)                        0x7fffe6b84128                
+32     destroy(..)                        0x7fffe6b8412c                
+32     destroy(..)                        0x7fffe6b84130                
+32     destroy(..)                        0x7fffe6b84134                
+32     destroy(..)                        0x7fffe6b84138                
+32     destroy(..)                        0x7fffe6b8413c                
+32     deallocate(..)                     0x7fffe6b84120      8         
 
  i    |vec[i]|
 0     |3.141593|
@@ -256,11 +256,11 @@ Tag    Operation                          Pointer             Size      Cntr
 32: Capacity= 15|Max_size= 15|Size= 9
 ------------------------------------------------------------------------
 vec4 IS EMPTY? 0
-32     destroy(..)                        0x7ffc8c67c6d0                
-32     destroy(..)                        0x7ffc8c67c6d4                
-32     destroy(..)                        0x7ffc8c67c6d8                
-32     destroy(..)                        0x7ffc8c67c6dc                
-32     destroy(..)                        0x7ffc8c67c6e0                
+32     destroy(..)                        0x7fffe6b84130                
+32     destroy(..)                        0x7fffe6b84134                
+32     destroy(..)                        0x7fffe6b84138                
+32     destroy(..)                        0x7fffe6b8413c                
+32     destroy(..)                        0x7fffe6b84140                
 
  i    |vec[i]|
 0     |3.141593|
@@ -272,13 +272,13 @@ vec4 IS EMPTY? 0
 ------------------------------------------------------------------------
 
 Starting:             .assign
-32     ***Construct(..)                   0x7ffc8c67c6d0      -534490669
-32     ***Construct(..)                   0x7ffc8c67c6d4      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6d8      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6dc      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6e0      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6e4      2147483647
-32     ***Construct(..)                   0x7ffc8c67c6e8      2147483647
+32     ***Construct(..)                   0x7fffe6b84130      -1546755629
+32     ***Construct(..)                   0x7fffe6b84134      2147483647
+32     ***Construct(..)                   0x7fffe6b84138      2147483647
+32     ***Construct(..)                   0x7fffe6b8413c      2147483647
+32     ***Construct(..)                   0x7fffe6b84140      2147483647
+32     ***Construct(..)                   0x7fffe6b84144      2147483647
+32     ***Construct(..)                   0x7fffe6b84148      2147483647
 
  i    |vec[i]|
 0     |1.000000|
@@ -296,7 +296,7 @@ Starting:             .assign
 32: Capacity= 15|Max_size= 15|Size= 11
 ------------------------------------------------------------------------
 
-Begin: 0x7ffc8c67c6c0
+Begin: 0x7fffe6b84120
 end - begin : 11
 
 
@@ -305,7 +305,7 @@ end - begin : 11
 
 ~~~~~~~~~~~MAPPING~~~~~~~~~~
 Tag    |Buffer_Pointer     |size     
-32      0x7ffc8c67c6c0      15        
+32      0x7fffe6b84120      15        
 
 Tag    |CounterBuffer      
 12      0                   
@@ -315,8 +315,8 @@ Tag    |CounterBuffer
 
 ~~~~~~~~~~~MAPPING~~~~~~~~~~
 Tag    |Buffer_Pointer     |size     
-5       0x7ffc8c67c640      15        
-32      0x7ffc8c67c6c0      15        
+5       0x7fffe6b840a0      15        
+32      0x7fffe6b84120      15        
 
 Tag    |CounterBuffer      
 5       0                   
@@ -325,34 +325,34 @@ Tag    |CounterBuffer
 45      0                   
 
 Tag    Operation                          Pointer             Size      Cntr 
-5      ArenaBufferAllocator()             0x7ffc8c67c640      15        1    
-5      allocate(..)                       0x7ffc8c67c640      1         
-5      ***Construct(..)                   0x7ffc8c67c640      2147483584
-5      allocate(..)                       0x7ffc8c67c640      2         
-5      ***Construct(..)                   0x7ffc8c67c644      2147483584
-5      ***Construct(..)                   0x7ffc8c67c640      2147483647
-5      destroy(..)                        0x7ffc8c67c640                
-5      deallocate(..)                     0x7ffc8c67c640      1         
-5      allocate(..)                       0x7ffc8c67c640      4         
-5      ***Construct(..)                   0x7ffc8c67c648      2147483584
-5      ***Construct(..)                   0x7ffc8c67c640      2147483647
-5      ***Construct(..)                   0x7ffc8c67c644      2147483647
-5      destroy(..)                        0x7ffc8c67c640                
-5      destroy(..)                        0x7ffc8c67c644                
-5      deallocate(..)                     0x7ffc8c67c640      2         
-5      ***Construct(..)                   0x7ffc8c67c64c      2147483584
-5      allocate(..)                       0x7ffc8c67c640      8         
-5      ***Construct(..)                   0x7ffc8c67c650      2147483584
-5      ***Construct(..)                   0x7ffc8c67c640      2147483647
-5      ***Construct(..)                   0x7ffc8c67c644      2147483647
-5      ***Construct(..)                   0x7ffc8c67c648      2147483647
-5      ***Construct(..)                   0x7ffc8c67c64c      2147483647
-5      destroy(..)                        0x7ffc8c67c640                
-5      destroy(..)                        0x7ffc8c67c644                
-5      destroy(..)                        0x7ffc8c67c648                
-5      destroy(..)                        0x7ffc8c67c64c                
-5      deallocate(..)                     0x7ffc8c67c640      4         
-5      ***Construct(..)                   0x7ffc8c67c654      2147483584
+5      ArenaBufferAllocator()             0x7fffe6b840a0      15        1    
+5      allocate(..)                       0x7fffe6b840a0      1         
+5      ***Construct(..)                   0x7fffe6b840a0      2147483584
+5      allocate(..)                       0x7fffe6b840a0      2         
+5      ***Construct(..)                   0x7fffe6b840a4      2147483584
+5      ***Construct(..)                   0x7fffe6b840a0      2147483647
+5      destroy(..)                        0x7fffe6b840a0                
+5      deallocate(..)                     0x7fffe6b840a0      1         
+5      allocate(..)                       0x7fffe6b840a0      4         
+5      ***Construct(..)                   0x7fffe6b840a8      2147483584
+5      ***Construct(..)                   0x7fffe6b840a0      2147483647
+5      ***Construct(..)                   0x7fffe6b840a4      2147483647
+5      destroy(..)                        0x7fffe6b840a0                
+5      destroy(..)                        0x7fffe6b840a4                
+5      deallocate(..)                     0x7fffe6b840a0      2         
+5      ***Construct(..)                   0x7fffe6b840ac      2147483584
+5      allocate(..)                       0x7fffe6b840a0      8         
+5      ***Construct(..)                   0x7fffe6b840b0      2147483584
+5      ***Construct(..)                   0x7fffe6b840a0      2147483647
+5      ***Construct(..)                   0x7fffe6b840a4      2147483647
+5      ***Construct(..)                   0x7fffe6b840a8      2147483647
+5      ***Construct(..)                   0x7fffe6b840ac      2147483647
+5      destroy(..)                        0x7fffe6b840a0                
+5      destroy(..)                        0x7fffe6b840a4                
+5      destroy(..)                        0x7fffe6b840a8                
+5      destroy(..)                        0x7fffe6b840ac                
+5      deallocate(..)                     0x7fffe6b840a0      4         
+5      ***Construct(..)                   0x7fffe6b840b4      2147483584
 
  i    |vec[i]|
 0     |30.000000|
@@ -368,10 +368,10 @@ Tag    Operation                          Pointer             Size      Cntr
 
 ~~~~~~~~~~~MAPPING~~~~~~~~~~
 Tag    |Buffer_Pointer     |size     
-1       0x55dee0685fc0      50        
-5       0x7ffc8c67c640      15        
-6       0x55dee0686610      10        
-32      0x7ffc8c67c6c0      15        
+1       0x5642a43f1fc0      50        
+5       0x7fffe6b840a0      15        
+6       0x5642a43f2610      500       
+32      0x7fffe6b84120      15        
 
 Tag    |CounterBuffer      
 1       0                   
@@ -382,283 +382,283 @@ Tag    |CounterBuffer
 45      0                   
 
 Tag    Operation                          Pointer             Size      Cntr 
-6      ArenaBufferAllocator()             0x55dee0686610      10        1    
+6      ArenaBufferAllocator()             0x5642a43f2610      500       1    
 
 Starting:  .push_back inner_t
-1      ArenaBufferAllocator()             0x55dee0685fc0      50        1    
-6      allocate(..)                       0x55dee0686610      1         
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        1    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        1    
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                1    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        1    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        1    
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                1    
-6      ***Construct(..)                   0x55dee0686610      -1939356640
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                1    
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                1    
+1      ArenaBufferAllocator()             0x5642a43f1fc0      50        1    
+6      allocate(..)                       0x5642a43f2610      1         
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        1    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        1    
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                1    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        1    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        1    
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                1    
+6      ***Construct(..)                   0x5642a43f2610      -424132992
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                1    
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                1    
 
 Starting:       [0].push_back
-1      allocate(..)                       0x55dee0685fc0      1         
-1      ***Construct(..)                   0x55dee0685fc0      35        
-1      allocate(..)                       0x55dee0685fc0      2         
-1      ***Construct(..)                   0x55dee0685fc4      35        
-1      ***Construct(..)                   0x55dee0685fc0      35        
-1      destroy(..)                        0x55dee0685fc0                
-1      deallocate(..)                     0x55dee0685fc0      1         
-1      allocate(..)                       0x55dee0685fc0      4         
-1      ***Construct(..)                   0x55dee0685fc8      35        
-1      ***Construct(..)                   0x55dee0685fc0      35        
-1      ***Construct(..)                   0x55dee0685fc4      35        
-1      destroy(..)                        0x55dee0685fc0                
-1      destroy(..)                        0x55dee0685fc4                
-1      deallocate(..)                     0x55dee0685fc0      2         
-Data0 0x55dee0685fc0
-Inner 0x55dee0685fc0
+1      allocate(..)                       0x5642a43f1fc0      1         
+1      ***Construct(..)                   0x5642a43f1fc0      35        
+1      allocate(..)                       0x5642a43f1fc0      2         
+1      ***Construct(..)                   0x5642a43f1fc4      35        
+1      ***Construct(..)                   0x5642a43f1fc0      35        
+1      destroy(..)                        0x5642a43f1fc0                
+1      deallocate(..)                     0x5642a43f1fc0      1         
+1      allocate(..)                       0x5642a43f1fc0      4         
+1      ***Construct(..)                   0x5642a43f1fc8      35        
+1      ***Construct(..)                   0x5642a43f1fc0      35        
+1      ***Construct(..)                   0x5642a43f1fc4      35        
+1      destroy(..)                        0x5642a43f1fc0                
+1      destroy(..)                        0x5642a43f1fc4                
+1      deallocate(..)                     0x5642a43f1fc0      2         
+Data0 0x5642a43f1fc0
+Inner 0x5642a43f1fc0
 Test[0][1] 35
 
 Starting:  .push_back inner_t
-1      ArenaBufferAllocator()             0x55dee0686088      50        2    
-6      allocate(..)                       0x55dee0686610      2         
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        2    
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        2    
-1      ~ArenaBufferAllocator()            0x55dee0686088                2    
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        2    
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        2    
-1      ~ArenaBufferAllocator()            0x55dee0686088                2    
-6      ***Construct(..)                   0x55dee0686638      -1939356640
-1      ~ArenaBufferAllocator()            0x55dee0686088                2    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        2    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        2    
-1      allocate(..)                       0x55dee0685fc0      3         
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                2    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        2    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        2    
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                2    
-6      ***Construct(..)                   0x55dee0686610      -1939356784
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                2    
-6      destroy(..)                        0x55dee0686610                
-1      deallocate(..)                     0x55dee0685fc0      3         
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                2    
-6      deallocate(..)                     0x55dee0686610      1         
-1      ~ArenaBufferAllocator()            0x55dee0686088                2    
-Data0 0x55dee0685fc0
+1      ArenaBufferAllocator()             0x5642a43f2088      50        2    
+6      allocate(..)                       0x5642a43f2610      2         
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        2    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        2    
+1      ~ArenaBufferAllocator()            0x5642a43f2088                2    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        2    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        2    
+1      ~ArenaBufferAllocator()            0x5642a43f2088                2    
+6      ***Construct(..)                   0x5642a43f2638      -424132992
+1      ~ArenaBufferAllocator()            0x5642a43f2088                2    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        2    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        2    
+1      allocate(..)                       0x5642a43f1fc0      3         
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                2    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        2    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        2    
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                2    
+6      ***Construct(..)                   0x5642a43f2610      -424133136
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                2    
+6      destroy(..)                        0x5642a43f2610                
+1      deallocate(..)                     0x5642a43f1fc0      3         
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                2    
+6      deallocate(..)                     0x5642a43f2610      1         
+1      ~ArenaBufferAllocator()            0x5642a43f2088                2    
+Data0 0x5642a43f1fc0
 
 Starting:       [1].push_back
-Data 0x55dee0685fc0
-1      allocate(..)                       0x55dee0686088      1         
-1      ***Construct(..)                   0x55dee0686088      335       
-1      allocate(..)                       0x55dee0686088      2         
-1      ***Construct(..)                   0x55dee068608c      335       
-1      ***Construct(..)                   0x55dee0686088      335       
-1      destroy(..)                        0x55dee0686088                
-1      deallocate(..)                     0x55dee0686088      1         
-1      allocate(..)                       0x55dee0686088      4         
-1      ***Construct(..)                   0x55dee0686090      335       
-1      ***Construct(..)                   0x55dee0686088      335       
-1      ***Construct(..)                   0x55dee068608c      335       
-1      destroy(..)                        0x55dee0686088                
-1      destroy(..)                        0x55dee068608c                
-1      deallocate(..)                     0x55dee0686088      2         
+Data 0x5642a43f1fc0
+1      allocate(..)                       0x5642a43f2088      1         
+1      ***Construct(..)                   0x5642a43f2088      335       
+1      allocate(..)                       0x5642a43f2088      2         
+1      ***Construct(..)                   0x5642a43f208c      335       
+1      ***Construct(..)                   0x5642a43f2088      335       
+1      destroy(..)                        0x5642a43f2088                
+1      deallocate(..)                     0x5642a43f2088      1         
+1      allocate(..)                       0x5642a43f2088      4         
+1      ***Construct(..)                   0x5642a43f2090      335       
+1      ***Construct(..)                   0x5642a43f2088      335       
+1      ***Construct(..)                   0x5642a43f208c      335       
+1      destroy(..)                        0x5642a43f2088                
+1      destroy(..)                        0x5642a43f208c                
+1      deallocate(..)                     0x5642a43f2088      2         
 
 Starting:  .push_back inner_t
-1      ArenaBufferAllocator()             0x55dee0686150      50        3    
-6      allocate(..)                       0x55dee0686610      4         
-1      ArenaBufferAllocator(..& other)    0x55dee0686150      50        3    
-1      ArenaBufferAllocator(..& other)    0x55dee0686150      50        3    
-1      ~ArenaBufferAllocator()            0x55dee0686150                3    
-1      ArenaBufferAllocator(..& other)    0x55dee0686150      50        3    
-1      ArenaBufferAllocator(..& other)    0x55dee0686150      50        3    
-1      ~ArenaBufferAllocator()            0x55dee0686150                3    
-6      ***Construct(..)                   0x55dee0686660      -1939356640
-1      ~ArenaBufferAllocator()            0x55dee0686150                3    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        3    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        3    
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                3    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        3    
-1      ArenaBufferAllocator(..& other)    0x55dee0685fc0      50        3    
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                3    
-6      ***Construct(..)                   0x55dee0686610      -1939356784
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                3    
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        3    
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        3    
-1      allocate(..)                       0x55dee0686088      3         
-1      ~ArenaBufferAllocator()            0x55dee0686088                3    
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        3    
-1      ArenaBufferAllocator(..& other)    0x55dee0686088      50        3    
-1      ~ArenaBufferAllocator()            0x55dee0686088                3    
-6      ***Construct(..)                   0x55dee0686638      -1939356784
-1      ~ArenaBufferAllocator()            0x55dee0686088                3    
-6      destroy(..)                        0x55dee0686610                
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                3    
-6      destroy(..)                        0x55dee0686638                
-1      deallocate(..)                     0x55dee0686088      3         
-1      ~ArenaBufferAllocator()            0x55dee0686088                3    
-6      deallocate(..)                     0x55dee0686610      2         
-1      ~ArenaBufferAllocator()            0x55dee0686150                3    
+1      ArenaBufferAllocator()             0x5642a43f2150      50        3    
+6      allocate(..)                       0x5642a43f2610      4         
+1      ArenaBufferAllocator(..& other)    0x5642a43f2150      50        3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2150      50        3    
+1      ~ArenaBufferAllocator()            0x5642a43f2150                3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2150      50        3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2150      50        3    
+1      ~ArenaBufferAllocator()            0x5642a43f2150                3    
+6      ***Construct(..)                   0x5642a43f2660      -424132992
+1      ~ArenaBufferAllocator()            0x5642a43f2150                3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        3    
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f1fc0      50        3    
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                3    
+6      ***Construct(..)                   0x5642a43f2610      -424133136
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        3    
+1      allocate(..)                       0x5642a43f2088      3         
+1      ~ArenaBufferAllocator()            0x5642a43f2088                3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        3    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2088      50        3    
+1      ~ArenaBufferAllocator()            0x5642a43f2088                3    
+6      ***Construct(..)                   0x5642a43f2638      -424133136
+1      ~ArenaBufferAllocator()            0x5642a43f2088                3    
+6      destroy(..)                        0x5642a43f2610                
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                3    
+6      destroy(..)                        0x5642a43f2638                
+1      deallocate(..)                     0x5642a43f2088      3         
+1      ~ArenaBufferAllocator()            0x5642a43f2088                3    
+6      deallocate(..)                     0x5642a43f2610      2         
+1      ~ArenaBufferAllocator()            0x5642a43f2150                3    
 Data0 (nil)
 
 Starting:       [2].push_back
-1      allocate(..)                       0x55dee0686150      1         
-1      ***Construct(..)                   0x55dee0686150      97        
-1      allocate(..)                       0x55dee0686150      2         
-1      ***Construct(..)                   0x55dee0686154      97        
-1      ***Construct(..)                   0x55dee0686150      97        
-1      destroy(..)                        0x55dee0686150                
-1      deallocate(..)                     0x55dee0686150      1         
-1      allocate(..)                       0x55dee0686150      4         
-1      ***Construct(..)                   0x55dee0686158      97        
-1      ***Construct(..)                   0x55dee0686150      97        
-1      ***Construct(..)                   0x55dee0686154      97        
-1      destroy(..)                        0x55dee0686150                
-1      destroy(..)                        0x55dee0686154                
-1      deallocate(..)                     0x55dee0686150      2         
+1      allocate(..)                       0x5642a43f2150      1         
+1      ***Construct(..)                   0x5642a43f2150      97        
+1      allocate(..)                       0x5642a43f2150      2         
+1      ***Construct(..)                   0x5642a43f2154      97        
+1      ***Construct(..)                   0x5642a43f2150      97        
+1      destroy(..)                        0x5642a43f2150                
+1      deallocate(..)                     0x5642a43f2150      1         
+1      allocate(..)                       0x5642a43f2150      4         
+1      ***Construct(..)                   0x5642a43f2158      97        
+1      ***Construct(..)                   0x5642a43f2150      97        
+1      ***Construct(..)                   0x5642a43f2154      97        
+1      destroy(..)                        0x5642a43f2150                
+1      destroy(..)                        0x5642a43f2154                
+1      deallocate(..)                     0x5642a43f2150      2         
 
 Starting:  .push_back inner_t
-1      ArenaBufferAllocator()             0x55dee0686218      50        4    
-1      ArenaBufferAllocator(..& other)    0x55dee0686218      50        4    
-1      ArenaBufferAllocator(..& other)    0x55dee0686218      50        4    
-1      ~ArenaBufferAllocator()            0x55dee0686218                4    
-1      ArenaBufferAllocator(..& other)    0x55dee0686218      50        4    
-1      ArenaBufferAllocator(..& other)    0x55dee0686218      50        4    
-1      ~ArenaBufferAllocator()            0x55dee0686218                4    
-6      ***Construct(..)                   0x55dee0686688      -1939356512
-1      ~ArenaBufferAllocator()            0x55dee0686218                4    
-1      ~ArenaBufferAllocator()            0x55dee0686218                4    
+1      ArenaBufferAllocator()             0x5642a43f2218      50        4    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2218      50        4    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2218      50        4    
+1      ~ArenaBufferAllocator()            0x5642a43f2218                4    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2218      50        4    
+1      ArenaBufferAllocator(..& other)    0x5642a43f2218      50        4    
+1      ~ArenaBufferAllocator()            0x5642a43f2218                4    
+6      ***Construct(..)                   0x5642a43f2688      -424132864
+1      ~ArenaBufferAllocator()            0x5642a43f2218                4    
+1      ~ArenaBufferAllocator()            0x5642a43f2218                4    
 
 Starting:       [3].push_back
-1      allocate(..)                       0x55dee0686218      1         
-1      ***Construct(..)                   0x55dee0686218      54        
-1      allocate(..)                       0x55dee0686218      2         
-1      ***Construct(..)                   0x55dee068621c      54        
-1      ***Construct(..)                   0x55dee0686218      54        
-1      destroy(..)                        0x55dee0686218                
-1      deallocate(..)                     0x55dee0686218      1         
-1      allocate(..)                       0x55dee0686218      4         
-1      ***Construct(..)                   0x55dee0686220      54        
-1      ***Construct(..)                   0x55dee0686218      54        
-1      ***Construct(..)                   0x55dee068621c      54        
-1      destroy(..)                        0x55dee0686218                
-1      destroy(..)                        0x55dee068621c                
-1      deallocate(..)                     0x55dee0686218      2         
+1      allocate(..)                       0x5642a43f2218      1         
+1      ***Construct(..)                   0x5642a43f2218      54        
+1      allocate(..)                       0x5642a43f2218      2         
+1      ***Construct(..)                   0x5642a43f221c      54        
+1      ***Construct(..)                   0x5642a43f2218      54        
+1      destroy(..)                        0x5642a43f2218                
+1      deallocate(..)                     0x5642a43f2218      1         
+1      allocate(..)                       0x5642a43f2218      4         
+1      ***Construct(..)                   0x5642a43f2220      54        
+1      ***Construct(..)                   0x5642a43f2218      54        
+1      ***Construct(..)                   0x5642a43f221c      54        
+1      destroy(..)                        0x5642a43f2218                
+1      destroy(..)                        0x5642a43f221c                
+1      deallocate(..)                     0x5642a43f2218      2         
 Data0 (nil)
-Data1 0x55dee0686088
-Data2 0x55dee0686150
-[2][0]:97in 0x55dee0686150
-[1][1] : 335 in 0x55dee068608c
-[3][0] : 54 in 0x55dee0686218
+Data1 0x5642a43f2088
+Data2 0x5642a43f2150
+[2][0]:97in 0x5642a43f2150
+[1][1] : 335 in 0x5642a43f208c
+[3][0] : 54 in 0x5642a43f2218
 ------------------------------------------------------------------------
 1: Capacity= 0|Max_size= 50|Size= 0
 ------------------------------------------------------------------------
 -----------------------------------
-75     ArenaBufferAllocator()             0x55dee0686a20      5         1    
+75     ArenaBufferAllocator()             0x5642a43f7520      5         1    
 Default test called with m = 7.
-75     allocate(..)                       0x55dee0686a20      1         
+75     allocate(..)                       0x5642a43f7520      1         
 Copy test called with m = 7.
 Copy test called with m = 7.
-75     ***Construct(..)                   0x55dee0686a20      -1939356596
+75     ***Construct(..)                   0x5642a43f7520      -424132948
 --------******~~------------------------
 Default test called with m = 8.
-75     allocate(..)                       0x55dee0686a20      2         
+75     allocate(..)                       0x5642a43f7520      2         
 Copy test called with m = 8.
 Copy test called with m = 8.
-75     ***Construct(..)                   0x55dee0686a24      -1939356596
+75     ***Construct(..)                   0x5642a43f7524      -424132948
 Copy test called with m = 7.
 Copy test called with m = 7.
-75     ***Construct(..)                   0x55dee0686a20      -1939356740
-75     destroy(..)                        0x55dee0686a20                
-75     deallocate(..)                     0x55dee0686a20      1         
+75     ***Construct(..)                   0x5642a43f7520      -424133092
+75     destroy(..)                        0x5642a43f7520                
+75     deallocate(..)                     0x5642a43f7520      1         
 Default test called with m = 9.
-75     allocate(..)                       0x55dee0686a20      4         
+75     allocate(..)                       0x5642a43f7520      4         
 Copy test called with m = 9.
 Copy test called with m = 9.
-75     ***Construct(..)                   0x55dee0686a28      -1939356596
+75     ***Construct(..)                   0x5642a43f7528      -424132948
 Copy test called with m = 7.
 Copy test called with m = 7.
-75     ***Construct(..)                   0x55dee0686a20      -1939356740
+75     ***Construct(..)                   0x5642a43f7520      -424133092
 Copy test called with m = 8.
 Copy test called with m = 8.
-75     ***Construct(..)                   0x55dee0686a24      -1939356740
-75     destroy(..)                        0x55dee0686a20                
-75     destroy(..)                        0x55dee0686a24                
-75     deallocate(..)                     0x55dee0686a20      2         
+75     ***Construct(..)                   0x5642a43f7524      -424133092
+75     destroy(..)                        0x5642a43f7520                
+75     destroy(..)                        0x5642a43f7524                
+75     deallocate(..)                     0x5642a43f7520      2         
 Default test called with m = 2.
 Copy test called with m = 2.
 Copy test called with m = 2.
-75     ***Construct(..)                   0x55dee0686a2c      -1939356468
+75     ***Construct(..)                   0x5642a43f752c      -424132820
 7
 8
 9
 2
 --------***OVER***~~------------------------
-75     destroy(..)                        0x55dee0686a20                
-75     destroy(..)                        0x55dee0686a24                
-75     destroy(..)                        0x55dee0686a28                
-75     destroy(..)                        0x55dee0686a2c                
-75     deallocate(..)                     0x55dee0686a20      4         
-75     ~ArenaBufferAllocator()            0x55dee0686a20                1    
-6      destroy(..)                        0x55dee0686610                
-1      ~ArenaBufferAllocator()            0x55dee0685fc0                4    
-6      destroy(..)                        0x55dee0686638                
-1      deallocate(..)                     0x55dee0686088      3         
-1      ~ArenaBufferAllocator()            0x55dee0686088                4    
-6      destroy(..)                        0x55dee0686660                
-1      destroy(..)                        0x55dee0686150                
-1      destroy(..)                        0x55dee0686154                
-1      destroy(..)                        0x55dee0686158                
-1      deallocate(..)                     0x55dee0686150      4         
-1      ~ArenaBufferAllocator()            0x55dee0686150                4    
-6      destroy(..)                        0x55dee0686688                
-1      destroy(..)                        0x55dee0686218                
-1      destroy(..)                        0x55dee068621c                
-1      destroy(..)                        0x55dee0686220                
-1      deallocate(..)                     0x55dee0686218      4         
-1      ~ArenaBufferAllocator()            0x55dee0686218                4    
-6      deallocate(..)                     0x55dee0686610      4         
-6      ~ArenaBufferAllocator()            0x55dee0686610                1    
-5      destroy(..)                        0x7ffc8c67c640                
-5      destroy(..)                        0x7ffc8c67c644                
-5      destroy(..)                        0x7ffc8c67c648                
-5      destroy(..)                        0x7ffc8c67c64c                
-5      destroy(..)                        0x7ffc8c67c650                
-5      destroy(..)                        0x7ffc8c67c654                
-5      deallocate(..)                     0x7ffc8c67c640      8         
-5      ~ArenaBufferAllocator()            0x7ffc8c67c640                1    
-32     destroy(..)                        0x7ffc8c67c6c0                
-32     destroy(..)                        0x7ffc8c67c6c4                
-32     destroy(..)                        0x7ffc8c67c6c8                
-32     destroy(..)                        0x7ffc8c67c6cc                
-32     destroy(..)                        0x7ffc8c67c6d0                
-32     destroy(..)                        0x7ffc8c67c6d4                
-32     destroy(..)                        0x7ffc8c67c6d8                
-32     destroy(..)                        0x7ffc8c67c6dc                
-32     destroy(..)                        0x7ffc8c67c6e0                
-32     destroy(..)                        0x7ffc8c67c6e4                
-32     destroy(..)                        0x7ffc8c67c6e8                
-32     deallocate(..)                     0x7ffc8c67c6c0      15        
-32     ~ArenaBufferAllocator()            0x7ffc8c67c6c0                0    
-45     destroy(..)                        0x7ffc8c67c760                
-45     destroy(..)                        0x7ffc8c67c764                
-45     deallocate(..)                     0x7ffc8c67c760      8         
-45     ~ArenaBufferAllocator()            0x7ffc8c67c760                0    
-12     destroy(..)                        0x7ffc8c67c7b0                
-12     destroy(..)                        0x7ffc8c67c7b4                
-12     destroy(..)                        0x7ffc8c67c7b8                
-12     destroy(..)                        0x7ffc8c67c7bc                
-12     destroy(..)                        0x7ffc8c67c7c0                
-12     destroy(..)                        0x7ffc8c67c7c4                
-12     destroy(..)                        0x7ffc8c67c7c8                
-12     destroy(..)                        0x7ffc8c67c7cc                
-12     destroy(..)                        0x7ffc8c67c7d0                
-12     destroy(..)                        0x7ffc8c67c7d4                
-12     destroy(..)                        0x7ffc8c67c7d8                
-12     destroy(..)                        0x7ffc8c67c7dc                
-12     destroy(..)                        0x7ffc8c67c7e0                
-12     destroy(..)                        0x7ffc8c67c7e4                
-12     destroy(..)                        0x7ffc8c67c7e8                
-12     destroy(..)                        0x7ffc8c67c7ec                
-12     destroy(..)                        0x7ffc8c67c7f0                
-12     destroy(..)                        0x7ffc8c67c7f4                
-12     destroy(..)                        0x7ffc8c67c7f8                
-12     destroy(..)                        0x7ffc8c67c7fc                
-12     deallocate(..)                     0x7ffc8c67c7b0      20        
-12     ~ArenaBufferAllocator()            0x7ffc8c67c7b0                0    
+75     destroy(..)                        0x5642a43f7520                
+75     destroy(..)                        0x5642a43f7524                
+75     destroy(..)                        0x5642a43f7528                
+75     destroy(..)                        0x5642a43f752c                
+75     deallocate(..)                     0x5642a43f7520      4         
+75     ~ArenaBufferAllocator()            0x5642a43f7520                1    
+6      destroy(..)                        0x5642a43f2610                
+1      ~ArenaBufferAllocator()            0x5642a43f1fc0                4    
+6      destroy(..)                        0x5642a43f2638                
+1      deallocate(..)                     0x5642a43f2088      3         
+1      ~ArenaBufferAllocator()            0x5642a43f2088                4    
+6      destroy(..)                        0x5642a43f2660                
+1      destroy(..)                        0x5642a43f2150                
+1      destroy(..)                        0x5642a43f2154                
+1      destroy(..)                        0x5642a43f2158                
+1      deallocate(..)                     0x5642a43f2150      4         
+1      ~ArenaBufferAllocator()            0x5642a43f2150                4    
+6      destroy(..)                        0x5642a43f2688                
+1      destroy(..)                        0x5642a43f2218                
+1      destroy(..)                        0x5642a43f221c                
+1      destroy(..)                        0x5642a43f2220                
+1      deallocate(..)                     0x5642a43f2218      4         
+1      ~ArenaBufferAllocator()            0x5642a43f2218                4    
+6      deallocate(..)                     0x5642a43f2610      4         
+6      ~ArenaBufferAllocator()            0x5642a43f2610                1    
+5      destroy(..)                        0x7fffe6b840a0                
+5      destroy(..)                        0x7fffe6b840a4                
+5      destroy(..)                        0x7fffe6b840a8                
+5      destroy(..)                        0x7fffe6b840ac                
+5      destroy(..)                        0x7fffe6b840b0                
+5      destroy(..)                        0x7fffe6b840b4                
+5      deallocate(..)                     0x7fffe6b840a0      8         
+5      ~ArenaBufferAllocator()            0x7fffe6b840a0                1    
+32     destroy(..)                        0x7fffe6b84120                
+32     destroy(..)                        0x7fffe6b84124                
+32     destroy(..)                        0x7fffe6b84128                
+32     destroy(..)                        0x7fffe6b8412c                
+32     destroy(..)                        0x7fffe6b84130                
+32     destroy(..)                        0x7fffe6b84134                
+32     destroy(..)                        0x7fffe6b84138                
+32     destroy(..)                        0x7fffe6b8413c                
+32     destroy(..)                        0x7fffe6b84140                
+32     destroy(..)                        0x7fffe6b84144                
+32     destroy(..)                        0x7fffe6b84148                
+32     deallocate(..)                     0x7fffe6b84120      15        
+32     ~ArenaBufferAllocator()            0x7fffe6b84120                0    
+45     destroy(..)                        0x7fffe6b841c0                
+45     destroy(..)                        0x7fffe6b841c4                
+45     deallocate(..)                     0x7fffe6b841c0      8         
+45     ~ArenaBufferAllocator()            0x7fffe6b841c0                0    
+12     destroy(..)                        0x7fffe6b84210                
+12     destroy(..)                        0x7fffe6b84214                
+12     destroy(..)                        0x7fffe6b84218                
+12     destroy(..)                        0x7fffe6b8421c                
+12     destroy(..)                        0x7fffe6b84220                
+12     destroy(..)                        0x7fffe6b84224                
+12     destroy(..)                        0x7fffe6b84228                
+12     destroy(..)                        0x7fffe6b8422c                
+12     destroy(..)                        0x7fffe6b84230                
+12     destroy(..)                        0x7fffe6b84234                
+12     destroy(..)                        0x7fffe6b84238                
+12     destroy(..)                        0x7fffe6b8423c                
+12     destroy(..)                        0x7fffe6b84240                
+12     destroy(..)                        0x7fffe6b84244                
+12     destroy(..)                        0x7fffe6b84248                
+12     destroy(..)                        0x7fffe6b8424c                
+12     destroy(..)                        0x7fffe6b84250                
+12     destroy(..)                        0x7fffe6b84254                
+12     destroy(..)                        0x7fffe6b84258                
+12     destroy(..)                        0x7fffe6b8425c                
+12     deallocate(..)                     0x7fffe6b84210      20        
+12     ~ArenaBufferAllocator()            0x7fffe6b84210                0    

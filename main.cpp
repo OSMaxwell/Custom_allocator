@@ -139,11 +139,11 @@ int main() {
   void* buffer_inner;
   buffer_inner = malloc(400 * sizeof(int));
   void* buffer_outer;
-  buffer_outer = malloc(20 * sizeof(inner_t));
+  buffer_outer = malloc(500 * sizeof(inner_t));
   tflite::ops::micro::InitTagToStaticBuf(1, buffer_inner, 50);
 
   std::cout << sizeof(inner_t) << std::endl;
-  tflite::ops::micro::InitTagToStaticBuf(6, buffer_outer, 10);
+  tflite::ops::micro::InitTagToStaticBuf(6, buffer_outer, 500);
   /*  printf("FROM %p\n",buffer_outer);
    printf("OVERHERE %p",buffer_outer+50); */
 
