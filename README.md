@@ -1,5 +1,10 @@
-#Custom_allocator
+# Custom_allocator
 
 No make available! 
+**UNDER CONSTRUCTION** 
 
-<b> UNDER CONSTRUCTION <\b>
+## TO DO:
+ - Clean code
+ - Add allocator_traits (Scoped call)
+ - Try pmr::vector 
+
