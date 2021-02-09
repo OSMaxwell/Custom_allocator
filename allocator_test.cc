@@ -28,7 +28,7 @@ GLOBAL global;  // The struct to "connect" with TFLite. DO NOT USE DIRECTLY
 // @tparam T for type
 // @tparam tag for tracking and mapping
 template <typename T, int tag>
-class ArenaBufferAllocator {
+class ArenaBufferAllocator { // C++03 Variant
  private:
   T* memory_ptr;
   std::size_t memory_size;
@@ -194,6 +194,10 @@ constexpr bool operator!=(const ArenaBufferAllocator<T, tag>&,
                           const ArenaBufferAllocator<U, tag>&) noexcept {
   return false;
 }
+
+
+
+
 
 // @brief Initialises the mapping of each static buffer to its corresponding
 // tag.

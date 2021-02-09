@@ -5,9 +5,10 @@
 #include "allocator_test.cc"
 #include "allocator_test.h"
 #include "pretty.cc"
+
 #define M_PI 3.14159265358979323846
 
-struct Test { //Used for testing.
+struct Test {  // Used for testing.
   int m = 0;
   Test(int x) : m(x) { printf("Default test called with m = %i.\n", m); }
   // Test() : m(0) {printf("Default test called.\n");}
@@ -16,10 +17,24 @@ struct Test { //Used for testing.
 
 int main() {
 #ifdef _DEBUG
-  std::cout << "-----DEBUG MODE---- \n\n";
+  std::cout << "-----DEBUG MODE---- \n";
+  printf("GCC version: %d.%d.%d\n", __GNUC__, __GNUC_MINOR__,
+         __GNUC_PATCHLEVEL__);
+  // Which version of C++ is being used?
+  if (__cplusplus == 201703L)
+    std::cout << "Version: C++17" << std::endl;
+  else if (__cplusplus == 201402L)
+    std::cout << "Version: C++14" << std::endl;
+  else if (__cplusplus == 201103L)
+    std::cout << "Version: C++11" << std::endl;
+  else if (__cplusplus == 199711L)
+    std::cout << "Version: C++98" << std::endl;
+  else
+    std::cout << "pre-standard C++" << std::endl;
 #else
   std::cout << "-----RELEASE MODE---- \n\n";
 #endif
+
   using inner_t =
       std::vector<int, tflite::ops::micro::ArenaBufferAllocator<int, 1>>;
   void* buffer_inner = malloc(400 * sizeof(int));
