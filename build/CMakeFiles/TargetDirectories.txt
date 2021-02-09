@@ -1,0 +1,3 @@
+/home/osm/Documents/EI-EDA/audio_pcm_gen/Custom_alloctor_tester/build/CMakeFiles/rebuild_cache.dir
+/home/osm/Documents/EI-EDA/audio_pcm_gen/Custom_alloctor_tester/build/CMakeFiles/Custom_allocator.dir
+/home/osm/Documents/EI-EDA/audio_pcm_gen/Custom_alloctor_tester/build/CMakeFiles/edit_cache.dir

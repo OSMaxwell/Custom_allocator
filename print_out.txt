@@ -1,0 +1,325 @@
+-----DEBUG MODE---- 
+
+
+~~~~~~~~~~USING CUSTOM ALLOCATOR~~~~~~~ 
+
+Tag    Operation                          Pointer             Size      
+12     ArenaBufferAllocator(..)           0x7ffdf4fe8e40      20        
+12     ArenaBufferAllocator(..& other)    0x7ffdf4fe8e40      20        
+12     ~ArenaBufferAllocator()            0x7ffdf4fe8e40                
+
+Starting:          .push_back
+Tag    Operation                          Pointer             Size      
+12     allocate(..)                                           1         
+12     allocate(..)                                           2         
+12     destroy(..)                        0x7ffdf4fe8e40                
+12     deallocate(..)                     0x7ffdf4fe8e40      1         
+12     allocate(..)                                           4         
+12     destroy(..)                        0x7ffdf4fe8e40                
+12     destroy(..)                        0x7ffdf4fe8e44                
+12     deallocate(..)                     0x7ffdf4fe8e40      2         
+12     allocate(..)                                           8         
+12     destroy(..)                        0x7ffdf4fe8e40                
+12     destroy(..)                        0x7ffdf4fe8e44                
+12     destroy(..)                        0x7ffdf4fe8e48                
+12     destroy(..)                        0x7ffdf4fe8e4c                
+12     deallocate(..)                     0x7ffdf4fe8e40      4         
+12     allocate(..)                                           16        
+12     destroy(..)                        0x7ffdf4fe8e40                
+12     destroy(..)                        0x7ffdf4fe8e44                
+12     destroy(..)                        0x7ffdf4fe8e48                
+12     destroy(..)                        0x7ffdf4fe8e4c                
+12     destroy(..)                        0x7ffdf4fe8e50                
+12     destroy(..)                        0x7ffdf4fe8e54                
+12     destroy(..)                        0x7ffdf4fe8e58                
+12     destroy(..)                        0x7ffdf4fe8e5c                
+12     deallocate(..)                     0x7ffdf4fe8e40      8         
+12     allocate(..)                                           20        
+12     destroy(..)                        0x7ffdf4fe8e40                
+12     destroy(..)                        0x7ffdf4fe8e44                
+12     destroy(..)                        0x7ffdf4fe8e48                
+12     destroy(..)                        0x7ffdf4fe8e4c                
+12     destroy(..)                        0x7ffdf4fe8e50                
+12     destroy(..)                        0x7ffdf4fe8e54                
+12     destroy(..)                        0x7ffdf4fe8e58                
+12     destroy(..)                        0x7ffdf4fe8e5c                
+12     destroy(..)                        0x7ffdf4fe8e60                
+12     destroy(..)                        0x7ffdf4fe8e64                
+12     destroy(..)                        0x7ffdf4fe8e68                
+12     destroy(..)                        0x7ffdf4fe8e6c                
+12     destroy(..)                        0x7ffdf4fe8e70                
+12     destroy(..)                        0x7ffdf4fe8e74                
+12     destroy(..)                        0x7ffdf4fe8e78                
+12     destroy(..)                        0x7ffdf4fe8e7c                
+12     deallocate(..)                     0x7ffdf4fe8e40      16        
+ i    |vec[i]|
+0     |77    |
+1     |77    |
+2     |77    |
+3     |77    |
+4     |77    |
+5     |77    |
+6     |77    |
+7     |77    |
+8     |77    |
+9     |77    |
+10    |77    |
+11    |77    |
+12    |77    |
+13    |77    |
+14    |77    |
+15    |77    |
+16    |77    |
+17    |77    |
+18    |77    |
+19    |77    |
+------------------------------------------------------------------------
+12: Capacity= 20|Max_size= 20|Size= 20
+------------------------------------------------------------------------
+
+~~~~~~~~~~~~END Vec2~~~~~~~~~~~~
+
+45     ArenaBufferAllocator(..)           0x7ffdf4fe8df0      20        
+45     ArenaBufferAllocator(..& other)    0x7ffdf4fe8df0      20        
+45     ~ArenaBufferAllocator()            0x7ffdf4fe8df0                
+
+Starting:          .push_back
+45     allocate(..)                                           1         
+45     allocate(..)                                           2         
+45     destroy(..)                        0x7ffdf4fe8df0                
+45     deallocate(..)                     0x7ffdf4fe8df0      1         
+45     allocate(..)                                           4         
+45     destroy(..)                        0x7ffdf4fe8df0                
+45     destroy(..)                        0x7ffdf4fe8df4                
+45     deallocate(..)                     0x7ffdf4fe8df0      2         
+45     allocate(..)                                           8         
+45     destroy(..)                        0x7ffdf4fe8df0                
+45     destroy(..)                        0x7ffdf4fe8df4                
+45     destroy(..)                        0x7ffdf4fe8df8                
+45     destroy(..)                        0x7ffdf4fe8dfc                
+45     deallocate(..)                     0x7ffdf4fe8df0      4         
+ i    |vec[i]|
+0     |123   |
+1     |123   |
+2     |123   |
+3     |123   |
+4     |123   |
+------------------------------------------------------------------------
+45: Capacity= 8|Max_size= 20|Size= 5
+------------------------------------------------------------------------
+
+Starting:           .pop_back
+45     destroy(..)                        0x7ffdf4fe8e00                
+45     destroy(..)                        0x7ffdf4fe8dfc                
+45     destroy(..)                        0x7ffdf4fe8df8                
+ i    |vec[i]|
+0     |123   |
+1     |123   |
+------------------------------------------------------------------------
+45: Capacity= 8|Max_size= 20|Size= 2
+------------------------------------------------------------------------
+
+~~~~~~~~~~~~END Vec3~~~~~~~~~~~~
+
+32     ArenaBufferAllocator(..)           0x7ffdf4fe8d50      15        
+32     ArenaBufferAllocator(..& other)    0x7ffdf4fe8d50      15        
+32     ~ArenaBufferAllocator()            0x7ffdf4fe8d50                
+
+Starting:          .push_back
+Tag    Operation                          Pointer             Size      
+32     allocate(..)                                           1         
+32     allocate(..)                                           2         
+32     destroy(..)                        0x7ffdf4fe8d50                
+32     deallocate(..)                     0x7ffdf4fe8d50      1         
+32     allocate(..)                                           4         
+32     destroy(..)                        0x7ffdf4fe8d50                
+32     destroy(..)                        0x7ffdf4fe8d54                
+32     deallocate(..)                     0x7ffdf4fe8d50      2         
+32     allocate(..)                                           8         
+32     destroy(..)                        0x7ffdf4fe8d50                
+32     destroy(..)                        0x7ffdf4fe8d54                
+32     destroy(..)                        0x7ffdf4fe8d58                
+32     destroy(..)                        0x7ffdf4fe8d5c                
+32     deallocate(..)                     0x7ffdf4fe8d50      4         
+32     allocate(..)                                           15        
+32     destroy(..)                        0x7ffdf4fe8d50                
+32     destroy(..)                        0x7ffdf4fe8d54                
+32     destroy(..)                        0x7ffdf4fe8d58                
+32     destroy(..)                        0x7ffdf4fe8d5c                
+32     destroy(..)                        0x7ffdf4fe8d60                
+32     destroy(..)                        0x7ffdf4fe8d64                
+32     destroy(..)                        0x7ffdf4fe8d68                
+32     destroy(..)                        0x7ffdf4fe8d6c                
+32     deallocate(..)                     0x7ffdf4fe8d50      8         
+ i    |vec[i]|
+0     |3.141593|
+1     |4.141593|
+2     |5.141593|
+3     |6.141593|
+4     |7.141593|
+5     |8.141593|
+6     |9.141593|
+7     |10.141593|
+8     |11.141593|
+------------------------------------------------------------------------
+32: Capacity= 15|Max_size= 15|Size= 9
+------------------------------------------------------------------------
+vec4 IS EMPTY? 0
+32     destroy(..)                        0x7ffdf4fe8d60                
+32     destroy(..)                        0x7ffdf4fe8d64                
+32     destroy(..)                        0x7ffdf4fe8d68                
+32     destroy(..)                        0x7ffdf4fe8d6c                
+32     destroy(..)                        0x7ffdf4fe8d70                
+ i    |vec[i]|
+0     |3.141593|
+1     |4.141593|
+2     |5.141593|
+3     |6.141593|
+------------------------------------------------------------------------
+32: Capacity= 15|Max_size= 15|Size= 4
+------------------------------------------------------------------------
+
+Starting:             .assign
+ i    |vec[i]|
+0     |1.000000|
+1     |1.000000|
+2     |1.000000|
+3     |1.000000|
+4     |1.000000|
+5     |1.000000|
+6     |1.000000|
+7     |1.000000|
+8     |1.000000|
+9     |1.000000|
+10    |1.000000|
+------------------------------------------------------------------------
+32: Capacity= 15|Max_size= 15|Size= 11
+------------------------------------------------------------------------
+
+Begin: 0x7ffdf4fe8d50
+end - begin : 11
+
+
+~~~~~~~~~~~~END Vec4~~~~~~~~~~~~
+
+2      ArenaBufferAllocator(..)           0x7ffdf4fe86d0      300       
+2      ArenaBufferAllocator(..& other)    0x7ffdf4fe86d0      300       
+2      ArenaBufferAllocator(..<U>& other) 0x7ffdf4fe8570      -1473388032
+2      allocate(..)                                           8         
+2      ~ArenaBufferAllocator()            0x7ffdf4fe8570                
+2      allocate(..)                                           64        
+2      ~ArenaBufferAllocator()            0x7ffdf4fe86d0                
+
+Starting:    .queue.push_back
+0     |0.000000|
+1     |2.000000|
+2     |4.000000|
+3     |6.000000|
+4     |8.000000|
+5     |10.000000|
+6     |12.000000|
+7     |14.000000|
+8     |16.000000|
+9     |18.000000|
+10    |20.000000|
+11    |22.000000|
+12    |24.000000|
+13    |26.000000|
+14    |28.000000|
+15    |30.000000|
+16    |32.000000|
+17    |34.000000|
+18    |36.000000|
+19    |38.000000|
+20    |40.000000|
+21    |42.000000|
+22    |44.000000|
+23    |46.000000|
+24    |48.000000|
+25    |50.000000|
+26    |52.000000|
+27    |54.000000|
+28    |56.000000|
+29    |58.000000|
+Size: 30
+max Size: 300
+
+Starting:.queue.shrink_to_fit
+max Size: 300
+Begin: 0x7ffdf4fe8f20
+End: 0x7ffdf4fe8f40
+Front: 0x7ffdf4fe8688
+2      destroy(..)                        0x7ffdf4fe86d0                
+2      destroy(..)                        0x7ffdf4fe86d8                
+2      destroy(..)                        0x7ffdf4fe86e0                
+2      destroy(..)                        0x7ffdf4fe86e8                
+2      destroy(..)                        0x7ffdf4fe86f0                
+2      destroy(..)                        0x7ffdf4fe86f8                
+2      destroy(..)                        0x7ffdf4fe8700                
+2      destroy(..)                        0x7ffdf4fe8708                
+2      destroy(..)                        0x7ffdf4fe8710                
+2      destroy(..)                        0x7ffdf4fe8718                
+2      destroy(..)                        0x7ffdf4fe8720                
+2      destroy(..)                        0x7ffdf4fe8728                
+2      destroy(..)                        0x7ffdf4fe8730                
+2      destroy(..)                        0x7ffdf4fe8738                
+2      destroy(..)                        0x7ffdf4fe8740                
+2      destroy(..)                        0x7ffdf4fe8748                
+2      destroy(..)                        0x7ffdf4fe8750                
+2      destroy(..)                        0x7ffdf4fe8758                
+2      destroy(..)                        0x7ffdf4fe8760                
+2      destroy(..)                        0x7ffdf4fe8768                
+2      destroy(..)                        0x7ffdf4fe8770                
+2      destroy(..)                        0x7ffdf4fe8778                
+2      destroy(..)                        0x7ffdf4fe8780                
+2      destroy(..)                        0x7ffdf4fe8788                
+2      destroy(..)                        0x7ffdf4fe8790                
+2      destroy(..)                        0x7ffdf4fe8798                
+2      destroy(..)                        0x7ffdf4fe87a0                
+2      destroy(..)                        0x7ffdf4fe87a8                
+2      destroy(..)                        0x7ffdf4fe87b0                
+2      destroy(..)                        0x7ffdf4fe87b8                
+2      deallocate(..)                     0x7ffdf4fe8600      64        
+2      ArenaBufferAllocator(..<U>& other) 0x7ffdf4fe8588      -184646048
+2      deallocate(..)                     0x7ffdf4fe8570      8         
+2      ~ArenaBufferAllocator()            0x7ffdf4fe8588                
+2      ~ArenaBufferAllocator()            0x7ffdf4fe86d0                
+32     destroy(..)                        0x7ffdf4fe8d50                
+32     destroy(..)                        0x7ffdf4fe8d54                
+32     destroy(..)                        0x7ffdf4fe8d58                
+32     destroy(..)                        0x7ffdf4fe8d5c                
+32     destroy(..)                        0x7ffdf4fe8d60                
+32     destroy(..)                        0x7ffdf4fe8d64                
+32     destroy(..)                        0x7ffdf4fe8d68                
+32     destroy(..)                        0x7ffdf4fe8d6c                
+32     destroy(..)                        0x7ffdf4fe8d70                
+32     destroy(..)                        0x7ffdf4fe8d74                
+32     destroy(..)                        0x7ffdf4fe8d78                
+32     deallocate(..)                     0x7ffdf4fe8d50      15        
+32     ~ArenaBufferAllocator()            0x7ffdf4fe8d50                
+45     destroy(..)                        0x7ffdf4fe8df0                
+45     destroy(..)                        0x7ffdf4fe8df4                
+45     deallocate(..)                     0x7ffdf4fe8df0      8         
+45     ~ArenaBufferAllocator()            0x7ffdf4fe8df0                
+12     destroy(..)                        0x7ffdf4fe8e40                
+12     destroy(..)                        0x7ffdf4fe8e44                
+12     destroy(..)                        0x7ffdf4fe8e48                
+12     destroy(..)                        0x7ffdf4fe8e4c                
+12     destroy(..)                        0x7ffdf4fe8e50                
+12     destroy(..)                        0x7ffdf4fe8e54                
+12     destroy(..)                        0x7ffdf4fe8e58                
+12     destroy(..)                        0x7ffdf4fe8e5c                
+12     destroy(..)                        0x7ffdf4fe8e60                
+12     destroy(..)                        0x7ffdf4fe8e64                
+12     destroy(..)                        0x7ffdf4fe8e68                
+12     destroy(..)                        0x7ffdf4fe8e6c                
+12     destroy(..)                        0x7ffdf4fe8e70                
+12     destroy(..)                        0x7ffdf4fe8e74                
+12     destroy(..)                        0x7ffdf4fe8e78                
+12     destroy(..)                        0x7ffdf4fe8e7c                
+12     destroy(..)                        0x7ffdf4fe8e80                
+12     destroy(..)                        0x7ffdf4fe8e84                
+12     destroy(..)                        0x7ffdf4fe8e88                
+12     destroy(..)                        0x7ffdf4fe8e8c                
+12     deallocate(..)                     0x7ffdf4fe8e40      20        
+12     ~ArenaBufferAllocator()            0x7ffdf4fe8e40                
