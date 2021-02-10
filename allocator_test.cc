@@ -2,6 +2,7 @@
 //#include "tensorflow/lite/c/common.h"
 #include <map>
 #include "allocator_test.h"
+#include <scoped_allocator>
 
 #ifdef _DEBUG
 #include <stdio.h>
@@ -301,9 +302,9 @@ struct ArenaAllocator_traits {
 
 // Standardized way to access certain properties of pointer-like types
 template <class T>
-struct pointer_traits;
+struct ArenaPointer_traits;
 template <class T>
-struct pointer_traits<T*> {
+struct ArenaPointer_traits<T*> {
   using pointer = T*;
   using element_type = T;
   using difference_type = std::ptrdiff_t;
@@ -318,6 +319,84 @@ struct pointer_traits<T*> {
 };
 
 /*Create for this https://en.cppreference.com/w/cpp/header/scoped_allocator*/
+template <class OuterAlloc, class... InnerAllocs>
+class ArenaScoped_allocator_adaptor : public OuterAlloc {
+ private:
+  using OuterTraits = ArenaAllocator_traits<OuterAlloc>;
+  ArenaScoped_allocator_adaptor<InnerAllocs...> inner;
+
+ public:
+  using outer_allocator_type = OuterAlloc;
+  using inner_allocator_type = /*fill*/;
+
+  using value_type = typename OuterTraits::value_type;
+  using size_type = typename OuterTraits::size_type;
+  using difference_type = typename OuterTraits::difference_type;
+  using pointer = typename OuterTraits::pointer;
+  using const_pointer = typename OuterTraits::const_pointer;
+  using void_pointer = typename OuterTraits::void_pointer;
+  using const_void_pointer = typename OuterTraits::const_void_pointer;
+
+  using propagate_on_container_copy_assignment = std::true_type;
+  using propagate_on_container_move_assignment = std::true_type;
+  using propagate_on_container_swap = std::true_type;
+  // using is_always_equal = /* Maybe not needed */;
+
+  template <class Tp>
+  struct rebind {
+    using other =
+        ArenaScoped_allocator_adaptor<OuterTraits::template rebind_alloc<Tp>,
+                                      InnerAllocs...>;
+  };
+  ArenaScoped_allocator_adaptor();
+  template <class OuterA2>
+  ArenaScoped_allocator_adaptor(OuterA2&& outerAlloc,
+                                const InnerAllocs&... innerAllocs) noexcept;
+
+  ArenaScoped_allocator_adaptor(
+      const ArenaScoped_allocator_adaptor& other) noexcept;
+  ArenaScoped_allocator_adaptor(ArenaScoped_allocator_adaptor&& other) noexcept;
+
+  template <class OuterA2>
+  ArenaScoped_allocator_adaptor(
+      const ArenaScoped_allocator_adaptor<OuterA2, InnerAllocs...>&
+          other) noexcept;
+  template <class OuterA2>
+  ArenaScoped_allocator_adaptor(
+      ArenaScoped_allocator_adaptor<OuterA2, InnerAllocs...>&& other) noexcept;
+
+  ArenaScoped_allocator_adaptor& operator=(
+      const ArenaScoped_allocator_adaptor&) = default;
+  ArenaScoped_allocator_adaptor& operator=(ArenaScoped_allocator_adaptor&&) =
+      default;
+
+  ~ArenaScoped_allocator_adaptor();
+
+  inner_allocator_type& inner_allocator() noexcept;
+  const inner_allocator_type& inner_allocator() const noexcept;
+  outer_allocator_type& outer_allocator() noexcept;
+  const outer_allocator_type& outer_allocator() const noexcept;
+  pointer allocate(size_type n);
+  pointer allocate(size_type n, const_void_pointer hint);
+  void deallocate(pointer p, size_type n);
+  size_type max_size() const;
+  template <class T, class... Args>
+  void construct(T* p, Args&&... args);
+
+  template <class T>
+  void destroy(T* p);
+
+  ArenaScoped_allocator_adaptor select_on_container_copy_construction() const;
+};
+template <class OuterAlloc, class... InnerAllocs>
+ArenaScoped_allocator_adaptor(OuterAlloc, InnerAllocs...)
+    ->ArenaScoped_allocator_adaptor<OuterAlloc, InnerAllocs...>;
+
+// scoped allocator operators
+template <class OuterA1, class OuterA2, class... InnerAllocs>
+bool operator==(
+    const ArenaScoped_allocator_adaptor<OuterA1, InnerAllocs...>& a,
+    const ArenaScoped_allocator_adaptor<OuterA2, InnerAllocs...>& b) noexcept;
 
 }  // namespace micro
 }  // namespace ops
