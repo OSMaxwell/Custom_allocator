@@ -28,7 +28,9 @@ GLOBAL global;  // The struct to "connect" with TFLite. DO NOT USE DIRECTLY
 // @tparam T for type
 // @tparam tag for tracking and mapping
 template <typename T, int tag>
-class ArenaBufferAllocator { // C++03 Variant
+class
+    ArenaBufferAllocator {  // C++03 Variant
+                            // https://en.cppreference.com/w/cpp/named_req/Allocator
  private:
   T* memory_ptr;
   std::size_t memory_size;
@@ -43,6 +45,11 @@ class ArenaBufferAllocator { // C++03 Variant
   typedef const T& const_reference;
   typedef void* void_pointer;
   typedef const void* const_void_pointer;
+  /*   typedef std::false_type propagate_on_container_move_assignment;
+    typedef std::false_type propagate_on_container_copy_assignment;
+    typedef std::true_type propagate_on_container_swap; */
+
+  // typedef std::true_type is_always_equal;
   // A template structure that provides the ability that any allocator may
   // allocate storage of another type indirectly.
   template <typename U>
@@ -79,7 +86,7 @@ class ArenaBufferAllocator { // C++03 Variant
   };
 
   // Copy Constructor
-  ArenaBufferAllocator(const ArenaBufferAllocator& other) throw()
+  ArenaBufferAllocator(const ArenaBufferAllocator& other) noexcept
       : memory_ptr(other.memory_ptr), memory_size(other.memory_size) {
 #ifdef _DEBUG
     DBGPRINTF("%-7d%-35s%-20p%-10d%-5d\n", tag,
@@ -195,10 +202,6 @@ constexpr bool operator!=(const ArenaBufferAllocator<T, tag>&,
   return false;
 }
 
-
-
-
-
 // @brief Initialises the mapping of each static buffer to its corresponding
 // tag.
 // @param tag : Tag of the allocator used, can also be seen in
@@ -210,7 +213,112 @@ void InitTagToStaticBuf(int tag, T* buff_ptr, size_t size) {
   global.TagToStaticBuf.insert({tag, {buff_ptr, size}});
   global.TagToBufferCounter.insert({tag, 0});
 }
+// ----------------------------------------------------------
+// ---------------- No tag included in these structs---------
+// ----------------------------------------------------------
+
+// Basic default Allocator. (C++14 Variant)
+// https://en.cppreference.com/w/cpp/memory/allocator
+// Minimal
+// @tparam T Type of object to allocate.
+template <class T>
+struct ArenaAllocator {
+  using value_type = T;
+  using size_type = std::size_t;
+  using propagate_on_container_move_assignment = std::true_type;
+  using is_awlays_equal = std::false_type;
+
+  ArenaAllocator() { /* do_stuff Params passing through GLOBAL*/
+  }
+  ArenaAllocator(const ArenaAllocator&) noexcept;
+  template <class U>
+  ArenaAllocator(const ArenaAllocator<U>&) noexcept { /* do_stuff */
+  }
+  ~ArenaAllocator() { /* do_stuff */
+  }
+  size_type max_size() const noexcept {
+    return std::numeric_limits<size_type>::max() /
+           sizeof(value_type);  // Fix this!
+  }
+  T* allocate(std::size_t n) { /* Do_something and return */
+  }
+  T* allocate(std::size_t n,
+              const void* hint) { /*Do same thing as allocate above*/
+  }
+  void deallocate(T* p, std::size_t n) { /* do_something */
+  }
+};
+
+template <class T, class U>
+constexpr bool operator!=(const ArenaAllocator<T>&,
+                          const ArenaAllocator<U>&) noexcept {
+  return false;
+}
+
+template <class T, class U>
+constexpr bool operator!=(const ArenaAllocator<T>&,
+                          const ArenaAllocator<U>&) noexcept {
+  return false;
+}
+
+// Allocator traits to use the basic allocator and handle complicated
+// allocations and lateral propagations.
+template <class T>
+struct ArenaAllocator_traits {
+  using allocator_type = T;
+  using value_type = T::value_type;
+  using pointer = value_type*;
+  using size_type = std::size_t;
+
+  using propagate_on_container_copy_assignment = std::true_type;
+  using propagate_on_container_move_assignment = std::true_type;
+  using propagate_on_container_swap = std::true_type;
+
+  template <class X>
+  using rebind_alloc = T::rebind<X>::other /*finish_this?*/;
+  template <class X>
+  using rebind_traits = ArenaAllocator_traits<rebind_alloc<X>>;
+
+  static T* allocatote(T& a, size_type n) { return a.allocate(n); }
+  static T* allocate(T& a, size_type n, const_void_pointer hint) {
+    return a.allocate(n, hint);
+  }
+  static void deallocate(T& a, pointer p, size_type n) { a.deallocate(p, n); }
+
+  template <class X, class... Args>
+  static void construct(T& a, X* p, Args&&... args) {
+    a.construct(p, std::forward<Args>(args)...);
+  }
+  template <class X>
+  static void destroy(T& a, X* p) {
+    p->~X();
+  }
+  static size_type max_size(T const& a) noexcept { return a.max_size(); }
+  static T select_on_container_copy_construction(T const& a) {
+    return a;  // Check this
+  }
+};
+
+// Standardized way to access certain properties of pointer-like types
+template <class T>
+struct pointer_traits;
+template <class T>
+struct pointer_traits<T*> {
+  using pointer = T*;
+  using element_type = T;
+  using difference_type = std::ptrdiff_t;
+
+  template <class U>
+  using rebind = U*;
+  // Constructs a dereferenceable pointer or pointer-like object ("fancy
+  // pointer") to its argument.
+  static pointer pointer_to(element_type& r) noexcept {
+    return std::addressof(r);
+  }
+};
+
+/*Create for this https://en.cppreference.com/w/cpp/header/scoped_allocator*/
 
 }  // namespace micro
 }  // namespace ops
-}  // namespace tflite */
+}  // namespace tflite

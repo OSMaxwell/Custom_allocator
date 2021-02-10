@@ -40,22 +40,23 @@ int main() {
   void* buffer_inner = malloc(400 * sizeof(int));
   void* buffer_outer = malloc(500 * sizeof(inner_t));
   tflite::ops::micro::InitTagToStaticBuf(1, buffer_inner, 50);
-  tflite::ops::micro::InitTagToStaticBuf(6, buffer_outer, 500);
+  tflite::ops::micro::InitTagToStaticBuf(6, buffer_outer, 5);
   pretty_mapping();
   pretty_header();
   std::vector<inner_t, tflite::ops::micro::ArenaBufferAllocator<inner_t, 6>>
       vec_2d;
   pretty_op_start(".push_back inner_t");
 
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 5; i++) {
     vec_2d.push_back(inner_t());
-    for (int c = 0; c < 50; c++) {
+    for (int c = 0; c < 4; c++) {
       vec_2d[i].push_back(c);
     }
   }
 
   for (int k = 0; vec_2d.size(); k++) {
-    std::cout << vec_2d[k].size() << ",";
+    for (int c = 0; c < 50; c++) {
+    std::cout << vec_2d[k][c] << ",";}
   }
   std::cout << "\n";
 
