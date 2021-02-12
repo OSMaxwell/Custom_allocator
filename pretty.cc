@@ -20,9 +20,9 @@ void pretty_op_start(const char *op_name) {
 // @brief Outputs stats/characters of a vector after creation
 // @param vec : The specified vector (Only use vectors that are using
 // ArenaBufferAllocator)
-template <class T, int tag>
+template <class T>
 void pretty_stats(
-    std::vector<T, tflite::ops::micro::ArenaBufferAllocator<T, tag>> &vec) {
+    std::vector<T, tflite::ops::micro::ArenaBufferAllocator<T>> &vec) {
   printf(
       "-----------------------------------------------------------------------"
       "-\n");
@@ -60,9 +60,9 @@ void pretty_print(std::vector<T> vec) {
 // summary of its stats is also given.
 // @param vec : The specified vector (Only use vectors with
 // ArenaBufferAllocator)
-template <class T, int tag>
+template <class T>
 void pretty_print(
-    std::vector<T, tflite::ops::micro::ArenaBufferAllocator<T, tag>> &vec) {
+    std::vector<T, tflite::ops::micro::ArenaBufferAllocator<T>> &vec) {
   printf("\n i    |vec[i]|\n");
   if (vec.size() == 0) {
     printf("\tEmpty\n");
@@ -82,16 +82,10 @@ void pretty_print(
 //@brief Prints the Static to Buffer Mapping that has been already stored.
 void pretty_mapping() {
   printf("\n~~~~~~~~~~~MAPPING~~~~~~~~~~\n");
-  printf("%-7s|%-19s|%-9s\n", "Tag", "Buffer_Pointer", "size");
+  printf("%-7s|%-19s|%-9s|%-9s\n", "Tag", "Buffer_Pointer", "Size","Counter");
   for (auto it = tflite::ops::micro::global.TagToStaticBuf.cbegin();
        it != tflite::ops::micro::global.TagToStaticBuf.cend(); it++) {
-    printf("%-8d%-20p%-10d\n", it->first, it->second.first, it->second.second);
-  }
-  printf("\n");
-  printf("%-7s|%-19s\n", "Tag", "CounterBuffer");
-  for (auto ite = tflite::ops::micro::global.TagToBufferCounter.cbegin();
-       ite != tflite::ops::micro::global.TagToBufferCounter.cend(); ite++) {
-    printf("%-8d%-20d\n", ite->first, ite->second);
+    printf("%-8d%-20p%-10d%-10d\n", it->first, it->second._static_buffer, it->second._size,it->second._counter);
   }
   printf("\n");
 }

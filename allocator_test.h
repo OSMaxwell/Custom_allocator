@@ -6,17 +6,28 @@
 namespace tflite {
 namespace ops {
 namespace micro {
-// Contains necessary information about the TFLiteContext and Buffer to
+
+// Used by GLOBAL to contain information about the tag.
+struct tag_id {
+  void* _static_buffer;
+  std::size_t _size;
+  int _counter;
+  tag_id(void* static_buffer, std::size_t size)
+      : _static_buffer(static_buffer), _size(size),_counter(0) {};
+};
+
+// Contains necessary information about Buffer to
 // container Tag bindings.
 struct GLOBAL {
-  std::map<int, std::pair<void*, size_t>> TagToStaticBuf; // {TAG,{STATIC BUFFER,SIZE}} mapping. DO NOT USE DIRECTLY
-  std::map<int, int> TagToBufferCounter ;
+  // {TAG,{STATIC BUFFER,SIZE,IN_USE,COUNTER}} mapping. DO NOT WRITE INTO DIRECTLY!
+  std::map<int, tag_id> TagToStaticBuf;  
+  int tag = 0;
 };  // Global
 
 extern GLOBAL global;
 
 template <typename T>
-void InitTagToStaticBuf(int tag, T* buff_ptr, size_t size);
+void InitTagToStaticBuf(T* buff_ptr, size_t size);
 
 }  // namespace micro
 }  // namespace ops

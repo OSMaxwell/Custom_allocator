@@ -36,14 +36,14 @@ int main() {
 #endif
 
   using inner_t =
-      std::vector<int, tflite::ops::micro::ArenaBufferAllocator<int, 1>>;
+      std::vector<int, tflite::ops::micro::ArenaBufferAllocator<int>>;
   void* buffer_inner = malloc(400 * sizeof(int));
   void* buffer_outer = malloc(500 * sizeof(inner_t));
-  tflite::ops::micro::InitTagToStaticBuf(1, buffer_inner, 50);
-  tflite::ops::micro::InitTagToStaticBuf(6, buffer_outer, 5);
+  tflite::ops::micro::InitTagToStaticBuf(buffer_inner, 50);
+  tflite::ops::micro::InitTagToStaticBuf(buffer_outer, 5);
   pretty_mapping();
   pretty_header();
-  std::vector<inner_t, tflite::ops::micro::ArenaBufferAllocator<inner_t, 6>>
+  std::vector<inner_t, tflite::ops::micro::ArenaBufferAllocator<inner_t>>
       vec_2d;
   pretty_op_start(".push_back inner_t");
 
