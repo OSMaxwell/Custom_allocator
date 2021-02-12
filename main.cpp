@@ -29,21 +29,25 @@ void scenario1()
   }
 }
 
+// uncomplete
+// comment to compile if needed
 void scenario2()
 {
-  // pay attention to this line
-  using stringBuffer = std::basic_string<char, std::char_traits<char>, StaticBufferAllocator<char>>;
-  char *buffer = (char *)malloc(100 * sizeof(char));
-  std::vector<stringBuffer, StaticBufferAllocator<stringBuffer>> v(0, StaticBufferAllocator<stringBuffer>(&buffer[0], 100));
+  std::string *buffer = (std::string *)malloc(100 * sizeof(std::string));
+  std::vector<std::string, StaticBufferAllocator<std::string>> v(0, StaticBufferAllocator<std::string>(&buffer[0], 100));
   std::vector<std::string> seed = {"OS", "MAXWELL", "Dainer", "Dainerx"};
 
   assert(v.size() == 0);
   assert(seed.size() == 4);
-
   v.resize(10);
+
+  // pay attention to this line
+  using String = std::basic_string<char, std::char_traits<char>, StaticBufferAllocator<char>>;
+  char *bufferC = (char *)malloc(100 * sizeof(char));
   for (int i = 0; i < 10; i++)
   {
-    //seed[i % seed.size()].copy((&v[i]).c_str(), seed[i % seed.size()].size(), 0);
+    auto s = std::string("aw", StaticBufferAllocator<char>(&bufferC[0], 100));
+    v.push_back(s);
   }
 
   std::cout << std::endl;
@@ -96,5 +100,4 @@ int main()
   scenario1();
   //scenario2();
   scenario3();
-  // vector 2 with custom allocator storing vectors
 }
