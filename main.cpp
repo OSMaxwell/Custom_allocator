@@ -66,9 +66,10 @@ void scenario2()
 // hence the CustomStringAllocator.
 void scenario3()
 {
+  const int STRING_BUFFER_MAX_SIZE = 100;
   // pay attention to this line
   using string = std::basic_string<char, std::char_traits<char>, CustomStringAllocator<char>>;
-  string *buffer = (string *)malloc(100 * sizeof(string));
+  string *buffer = (string *)malloc(STRING_BUFFER_MAX_SIZE * sizeof(string));
   string s1("OSMAXWELL", CustomStringAllocator<string>(&buffer[0], 20));
   string s2("Starkaf", CustomStringAllocator<string>(&buffer[25], 25));
   // let's try some operators
@@ -86,11 +87,35 @@ void scenario3()
     std::cout << user_names[i] << std::endl;
   }
 
+  try
+  {
+    // Should fail
+    string outofbuffer_str("OSMAXWELLStarkaf", CustomStringAllocator<string>(&buffer[STRING_BUFFER_MAX_SIZE - 2], 25));
+  }
+  catch (const std::exception &e)
+  {
+    std::cout << "Caught an expected buffer overflow error";
+  }
+
   free(buffer);
 }
 
 void scenario4()
 {
+  const int STRING_BUFFER_MAX_SIZE = 1000;
+  // pay attention to this line
+  // using string = std::basic_string<char, std::char_traits<char>, CustomStringAllocator<char>>;
+  // string *buffer_string = (string *)malloc(STRING_BUFFER_MAX_SIZE * sizeof(string));
+  // std::vector<string, StaticBufferAllocator<string>> user_names(0, StaticBufferAllocator<string>(&buffer_string[0], STRING_BUFFER_MAX_SIZE));
+
+  // user_names.push_back(string("Dainerx", CustomStringAllocator<string>(&buffer_string[0], 10)));
+  // user_names.push_back(string("OSMAXWELL", CustomStringAllocator<string>(&buffer_string[10], 12)));
+  // user_names.push_back(string("Starkaf", CustomStringAllocator<string>(&buffer_string[30], 10)));
+  // assert(user_names.size() == 3);
+  // for (std::size_t i = 0; i < user_names.size(); i++)
+  // {
+  //   assert(user_names[i].size() >= 7); //shortest is 7 long
+  // }
 }
 
 int main()
