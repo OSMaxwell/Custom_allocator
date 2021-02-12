@@ -1,2 +1,14 @@
+# build dir
+.build/
 
+# vscode
 .vscode/
+
+# text files - keep CMake files
+.txt
+!CMakeLists.txt
+
+
+# executables
+*.out
+*.exe
