@@ -8,7 +8,8 @@
 
 class custom_monotonic_buffer_resource : std::pmr::monotonic_buffer_resource
 {
-  void *do_allocate(const size_t _Bytes, const size_t _Align) override {}
+  memory_resource* _Resource = std::pmr::get_default_resource();
+  void *do_allocate(const size_t _Bytes, const size_t _Align) override { return _Resource}
   void do_deallocate(void *, size_t, size_t) override {} // nothing to do
 }
 
