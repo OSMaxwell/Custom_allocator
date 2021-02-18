@@ -3,6 +3,15 @@
 No make available! 
 **UNDER CONSTRUCTION** 
 
+## PMR: 
+
+Make sure version(gcc) > 9.5. 
+
+```
+g++ -sdd=c++17 -o main.exe main.cpp 
+./main.exe
+```
+
 ## TO DO:
  - Clean code
  - Add allocator_traits (Scoped call)

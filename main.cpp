@@ -1,22 +1,48 @@
 #include <stdio.h>
 #include <iostream>
 #include <algorithm>
-#include <scoped_allocator>
 #include <assert.h>
 #include <string>
 #include <memory_resource>
 
-class custom_monotonic_buffer_resource : std::pmr::monotonic_buffer_resource
-{
-  memory_resource* _Resource = std::pmr::get_default_resource();
-  void *do_allocate(const size_t _Bytes, const size_t _Align) override { return _Resource}
-  void do_deallocate(void *, size_t, size_t) override {} // nothing to do
-}
+// class custom_monotonic_buffer_resource : std::pmr::monotonic_buffer_resource
+// {
+//   memory_resource *_Resource = std::pmr::get_default_resource();
+//   void *do_allocate(const size_t _Bytes, const size_t _Align) override { return _Resource }
+//   void do_deallocate(void *, size_t, size_t) override {} // nothing to do
+// };
 
-scenario0()
+class custom_resource : public std::pmr::memory_resource
 {
-  int buffer[100] = {0}; // this buffer hold 100 integers.
-  std::pmr::monotonic_buffer_resource pool{std::data(buffer), std::size(buffer)};
+public:
+  explicit custom_resource(std::pmr::memory_resource *up = std::pmr::get_default_resource())
+      : _upstream{up}
+  {
+  }
+
+  void *do_allocate(size_t bytes, size_t alignment) override
+  {
+    return _upstream;
+  }
+
+  void do_deallocate(void *ptr, size_t bytes, size_t alignment) override
+  {
+  }
+
+  bool do_is_equal(const std::pmr::memory_resource &other) const noexcept override
+  {
+    return this == &other;
+  }
+
+private:
+  std::pmr::memory_resource *_upstream;
+};
+
+void scenario0()
+{
+  std::byte buffer[128];
+  custom_resource resource;
+  std::pmr::monotonic_buffer_resource pool{std::data(buffer), std::size(buffer), &resource};
   std::pmr::vector<int> v(&pool);
   assert(v.size() == 0);
   for (int i = 0; i < 50; i++)
@@ -24,22 +50,78 @@ scenario0()
     v.push_back(i);
   }
 
-  assert(v.size() == 50);
+  // std::cout << sizeof(int) * sizeof(buffer) << std::endl;
+  // std::cout << sizeof(int) * v.capacity() << std::endl;
 
-  for (int i = 0; i < 100; i++)
+  assert(v.size() == 50);
+ 
+  for (int i = 0; i < 10; i++)
   {
     try
     {
       v.push_back(i);
+      // std::cout << sizeof(int) * v.capacity() << " " << i << std::endl;
     }
     catch (const std::exception &e)
     {
-      std::cout << "Caught an expected buffer overflow error";
+      std::cout << "Caught an expected buffer overflow error - at index i: " << i << std::endl;
     }
   }
 }
 
+void scenario1()
+{
+  std::byte buffer[512];// too large i think
+  custom_resource resource;
+  std::pmr::monotonic_buffer_resource pool{std::data(buffer), std::size(buffer), &resource};
+  std::pmr::vector<std::pmr::vector<int>> outer(&pool);
+
+  int mem_footprint = 0;
+  int rows = 5, columns = 5;
+  for (int i = 0; i < rows; i++)
+  {
+    outer.push_back(std::pmr::vector<int>(&pool));
+    mem_footprint += sizeof(outer[i]);
+  }
+  std::cout << mem_footprint << std::endl;
+  assert(outer.size() == rows);
+
+  int expected_sum = 0;
+  for (int i = 0; i < outer.size(); i++)
+  {
+    for (int j = 0; j < columns; j++)
+    {
+      outer[i].push_back(j);
+      expected_sum += j;
+    }
+  }
+
+  for (int i = 0; i < outer.size(); i++)
+  {
+    assert(outer[i].size() == columns);
+  }
+
+  int actual_sum = 0;
+  for (int i = 0; i < outer.size(); i++)
+  {
+    for (int j = 0; j < outer[i].size(); j++)
+    {
+      mem_footprint += sizeof(outer[i][j]);
+      actual_sum += outer[i][j];
+    }
+  }
+
+  std::cout << "memory foot print " << mem_footprint << std::endl;
+  assert(actual_sum == expected_sum);
+}
+
+void scenario2()
+{
+  
+}
+
 int main()
 {
-  scenario0();
+  // scenario0();
+  scenario1();
 }
