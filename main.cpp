@@ -54,7 +54,7 @@ void scenario0()
   // std::cout << sizeof(int) * v.capacity() << std::endl;
 
   assert(v.size() == 50);
- 
+
   for (int i = 0; i < 10; i++)
   {
     try
@@ -71,19 +71,16 @@ void scenario0()
 
 void scenario1()
 {
-  std::byte buffer[512];// too large i think
+  std::byte buffer[512]; // too large i think
   custom_resource resource;
   std::pmr::monotonic_buffer_resource pool{std::data(buffer), std::size(buffer), &resource};
   std::pmr::vector<std::pmr::vector<int>> outer(&pool);
 
-  int mem_footprint = 0;
   int rows = 5, columns = 5;
   for (int i = 0; i < rows; i++)
   {
     outer.push_back(std::pmr::vector<int>(&pool));
-    mem_footprint += sizeof(outer[i]);
   }
-  std::cout << mem_footprint << std::endl;
   assert(outer.size() == rows);
 
   int expected_sum = 0;
@@ -106,22 +103,30 @@ void scenario1()
   {
     for (int j = 0; j < outer[i].size(); j++)
     {
-      mem_footprint += sizeof(outer[i][j]);
       actual_sum += outer[i][j];
     }
   }
 
-  std::cout << "memory foot print " << mem_footprint << std::endl;
   assert(actual_sum == expected_sum);
 }
 
 void scenario2()
 {
-  
+    auto scope = []() {
+      std::byte buffer[128];
+      custom_resource resource;
+      std::pmr::monotonic_buffer_resource pool{std::data(buffer), std::size(buffer), &resource};
+      std::pmr::vector<int> v(&pool);
+      return v;
+    }; 
+
+    auto v = scope();
+    v.push_back(1); // SHOULD FAIL OUT OF SCOPE - stack memory of buffer is only accessible in its scope
 }
 
 int main()
 {
   // scenario0();
-  scenario1();
+  // scenario1();
+  // scenario2();
 }
