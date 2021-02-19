@@ -19,24 +19,30 @@ The goal is to understand these, test them and try to create the custom static b
 ### Benchmarks 
 Results can also be found at https://quick-bench.com/ from Benchmark.cpp 
 Uncomment/Comment to bench.
-_PS: Not all functions can be combined for benching at the same time._
+_PS 1 : Not all functions can be combined for benching at the same time._
+_PS 2 : Using PMR will actually add more assembly code._
 
 **To compile C++17 + GCC 9.1 are _required_.**
+
+#### PMR or regular? (2)
 
 ![PMR vs RegularSTD](pic/90X72XHGO6fFbP1xra40SyHJlbw.png)
 
 monotonic_buffer_resource is noticeably faster !
+
+#### PMR or regular? (2)
 
 ![pmr_vec vs std_vec](pic/OVFVr-k-fuFDTCHj40VziBIjJWU.png)
 TEST CASE: Create two vectors using both pmr and regular std. 
 
 You guessed it, pmr is faster. :+1:
 
+#### Push pop on std?
 ![push_back effect](pic/qdWLmSq97DgnKT5dbEs8QdAac44.png)
 ```
     //Create a regular vector / pmr vector
     ...
-    
+
     vec1.push_back(10);
     vec1.push_back(10);
 
@@ -44,4 +50,10 @@ You guessed it, pmr is faster. :+1:
     vec1.pop_back();
 ```
 ... and its effect on speed.
+
+#### push pop on pmr?
+
+![push_back effect2](pic/j-B3nqcdBNFKp6fW6BVcZQQ20zk.png)
+
+Almost the same runtime /CPU time. 
 
