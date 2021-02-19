@@ -10,8 +10,8 @@
       - [synchronized_pool_resource](#synchronized-pool-resource)
       - [unsynchronized_pool_resource](#unsynchronized-pool-resource)
     + [Benchmarks](#benchmarks)
+      - [PMR or regular? (1)](#pmr-or-regular---1-)
       - [PMR or regular? (2)](#pmr-or-regular---2-)
-      - [PMR or regular? (2)](#pmr-or-regular---2--1)
       - [Push pop on std?](#push-pop-on-std-)
       - [push pop on pmr?](#push-pop-on-pmr-)
       - [vec[i]= 20; ?](#vec-i---20---)
@@ -68,7 +68,7 @@ _PS 2 : Using PMR will actually add more assembly code._
 
 **To compile C++17 + GCC 9.1 are _required_.**
 
-#### PMR or regular? (2)
+#### PMR or regular? (1)
 
 ![PMR vs RegularSTD](pic/90X72XHGO6fFbP1xra40SyHJlbw.png)
 
