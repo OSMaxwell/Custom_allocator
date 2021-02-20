@@ -15,3 +15,31 @@ Currently malloc_hook has two version (different implementations):
 
 
 Both methods save address and size of memory in an external struct/array for future prints/debugging. Make sure to also compile with '-D _DEBUG' as argument.
+
+# Screenshots
+_taken from terminal:_
+
+80     malloc    0x56361441c4f0                     4                   
+81     malloc    0x56361441c510                     8                   
+82     free      0x56361441c4f0                     
+82     malloc    0x56361441c4f0                     16                  
+83     free      0x56361441c510                     
+83     malloc    0x56361441c7a0                     32                  
+84     free      0x56361441c4f0                     
+84     malloc    0x56361441c590                     64                  
+85     free      0x56361441c7a0                     
+85     malloc    0x56361441c8e0                     64 
+
+
+# Compile
+To compile, run:
+```
+g++ -o main.o main.cpp -Wno-deprecated-declarations
+```
+As the current version is using **__malloc_hook** method, no particular std/lib version is required.
+
+# Missing 
+- [ ] Fix incremental tag in free_hook.
+- [ ] \(Optional) Add system logging with date.
+- [ ] Add different test cases with different containers.
+- [ ] Fix __libc_malloc method.

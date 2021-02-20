@@ -1,5 +1,6 @@
 # build dir
 .build/
+/build
 
 # vscode
 .vscode/
@@ -12,3 +13,5 @@
 # executables
 *.out
 *.exe
+*.o
+main

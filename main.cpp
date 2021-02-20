@@ -1,13 +1,10 @@
+#include <assert.h>
 #include <stdio.h>
 #include <deque>
 #include <iostream>
 #include <vector>
-//#include "allocator_test.h"
-//#include "allocator_test.cc"
-//#include "pretty.cc"
-#include "malloc_hook.h"
 #include "malloc_hook.cc"
-//#include <mcheck.h>
+#include "malloc_hook.h"
 
 #define M_PI 3.14159265358979323846
 
@@ -20,6 +17,41 @@ struct Test {  // Used for testing.
   // Test() : m(0) {printf("Default test called.\n");}
   Test(const Test& t) : m(t.m) { printf("Copy test called with m = %i.\n", m); }
 };
+
+void case_one_vec() {
+  cus_hook_init();
+  std::vector<double> v1;
+  for (int i = 0; i < 16; i++) {
+    v1.push_back(-i);
+  }
+  printf("Vector size : %i", v1.size());
+  for (int i = 0; i < v1.size(); i++) {
+    printf("%i ", v1[i]);
+  }
+}
+
+void case_vec_in_vec() {
+  int col = 1;
+  int row = 16;
+  int num = 0;
+  cus_hook_init();
+  std::vector<std::vector<int>> v2;
+  for (int j = 0; j < row; j++) {
+    std::vector<int> v1;
+    for (int j = 0; j < col; j++) {
+      v1.push_back(num);
+      num += 2;
+    }
+    v2.push_back(v1);
+    col++;
+    printf("Outer vector size : %i\n", v2.size());
+  }
+
+  for (int i = 0; i < v2.size(); i++) {
+    for (int j = 0; j < v2[i].size(); j++) std::cout << v2[i][j] << " ";
+    std::cout << std::endl;
+  }
+}
 
 int main() {
 #ifdef _DEBUG
@@ -40,17 +72,12 @@ int main() {
 #else
   std::cout << "-----RELEASE MODE---- \n\n";
 #endif
-  // cus_init_hook();
-  std::vector<int> v1;
-  for (int i = 0; i < 16; i++) {
-    v1.push_back(-i);
+  case_vec_in_vec();
+
+  // final print
+  for (int i = 0; i < global.tag; i++) {
+    printf("%p,%d\n", global.address_table[i], global.size_table[i]);
   }
-  for (int i = 0; i < v1.size(); i++) {
-    printf("%i ", v1[i]);
-  }
-/*   for (auto it = global.TagToStaticBuf.cbegin();
-       it != global.TagToStaticBuf.cend(); ++it) {
-    std::cout << it->first << " " << it->second << "\n";
-  } */
+  printf("This is : %p", *global.address_table);  // Hmm???????....
   printf("\n--------***OVER***~~------------------------\n");
 }
