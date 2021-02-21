@@ -15,6 +15,8 @@
       - [Push pop on std?](#push-pop-on-std-)
       - [push pop on pmr?](#push-pop-on-pmr-)
       - [vec[i]= 20; ?](#vec-i---20---)
+- [Components](#components)
+- [Compile](#compile)
 
 
 # Research and Comparision 
@@ -60,11 +62,7 @@ Just like *synchronized_pool_resource* but it cannot be accessed from multiple t
 ### Benchmarks 
 Results can also be found at https://quick-bench.com/ from Benchmark.cpp 
 
-Uncomment/Comment to bench.
-
-_PS 1 : Not all functions can be combined for benching at the same time._
-
-_PS 2 : Using PMR will actually add more assembly code._
+Uncomment/Comment to bench.research-and-comparisionmore assembly code._
 
 **To compile C++17 + GCC 9.1 are _required_.**
 
@@ -118,3 +116,19 @@ Almost the same runtime/CPU time ratio. Of course, the effect on _pmr_ is much l
 
 _pmr_ is still faster. There is almost a (x2.3) diff between the two cases.
 
+# Components
+Include pmr_allocator and use the custom_resource class.
+
+To use _::pmr_ on a a specific container, you need to first set a pool, pass that pool as monotonic_buffer_resource, and then pass the resource to a given container (vector).
+
+_Note the use of pmr::vector here._ 
+
+```
+  std::byte buffer[512]; 
+  custom_resource resource;
+  std::pmr::monotonic_buffer_resource pool{std::data(buffer), std::size(buffer), &resource};
+  std::pmr::vector<std::pmr::vector<int>> outer(&pool);
+```
+
+# Compile 
+To compile C++17 and GCC9.1 or above are required.
