@@ -17,15 +17,19 @@ void pretty_header() {
 inline void pretty_malloc_print(void *ptr, size_t size) {
   printf("%-7i%-10s%-35p%-20i\n", global.counter, "malloc", ptr, size);
 }
-inline void pretty_free_print(void *ptr) {
-  printf("%-7i%-10s%-35p\n", global.counter, "free", ptr);
+inline void pretty_free_print(void *ptr, bool recorded) {
+  if (recorded) {
+    printf("%-7i%-10s%-35p\n", global.counter, "free", ptr);
+  } else {
+    printf("%-7i%-10s%-35p%-3s\n", global.counter, "free", ptr, "Not");
+  }
 }
 
 inline void pretty_map_print(void) {
-  printf("%-35s%-10s%-10s\n", "Pointer", "Size", "Lifetime");
+  printf("%-35s%-10s%-10s%-10s%-5s\n", "Pointer", "Size", "Allocated", "Lifetime","Reuse");
   for (auto elem : global.StatBufMapper) {
-    printf("%-35p%-10i%-10i\n", elem.first, elem.second.first,
-           elem.second.second);
+    printf("%-35p%-10i%-10i%-10i%-5i\n", elem.first, elem.second.size,
+           elem.second.firstUsed, elem.second.lastUsed,elem.second.use);
   }
 }
 
@@ -46,7 +50,7 @@ static void cus_hook_init(void) {
   __free_hook = cus_free_hook;
 }
 
-static void done_hook(void){
+static void done_hook(void) {
   __malloc_hook = old_malloc_hook;
   __free_hook = old_free_hook;
 }
@@ -65,7 +69,13 @@ static void *cus_malloc_hook(size_t size, const void *caller) {
   /* printf might call malloc, so protect it too. */
   pretty_malloc_print(result, size);
   // CAN ADD MAP HERE.
-  global.StatBufMapper.insert({result, {size, -1}});
+  auto it = global.StatBufMapper.find(result);
+  if (it == global.StatBufMapper.end()) {
+    global.StatBufMapper.insert({result, ptr_id(size,global.counter)});
+  } else {
+    it->second.size = size;
+    it->second.use++;
+  }
   /* Restore our own hooks */
   __malloc_hook = cus_malloc_hook;
   __free_hook = cus_free_hook;
@@ -83,14 +93,12 @@ static void cus_free_hook(void *ptr, const void *caller) {
   old_malloc_hook = __malloc_hook;
   old_free_hook = __free_hook;
   /* printf might call free, so protect it too. */
-  pretty_free_print(ptr);
-
-  for (auto it = global.StatBufMapper.rbegin(); it != global.StatBufMapper.rend();
-       ++it) {
-    if (it->first == ptr) {
-      it->second.second = global.counter;
-      break;
-    }
+  auto it = global.StatBufMapper.find(ptr);
+  if (it != global.StatBufMapper.end()) {
+    it->second.lastUsed = global.counter;
+    pretty_free_print(ptr, true);
+  } else {
+    pretty_free_print(ptr, false);
   }
   /* Restore our own hooks */
   __malloc_hook = cus_malloc_hook;

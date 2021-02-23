@@ -73,7 +73,8 @@ int main() {
 #else
   std::cout << "-----RELEASE MODE---- \n\n";
 #endif
-  case_one_vec();
+  pretty_header();
+  case_vec_in_vec();
 
   // final print
   /*   for (int i = 0; i < global.tag; i++) {
@@ -82,5 +83,5 @@ int main() {
     printf("This is : %p", *global.address_table);  // Hmm???????.... */
   pretty_map_print();
   printf("\n--------***OVER***~~------------------------\n");
-  //done_hook();
+  // done_hook();
 }
