@@ -40,8 +40,14 @@ g++ -o main.o main.cpp -Wno-deprecated-declarations
 ```
 As the current version is using **__malloc_hook** method, no particular std/lib version is required.
 
+# How to use 
+1. Include 
+2. 'cus_hook_init()' to hook. 
+3. Right at the end (or when needed), 'pretty_map_print()' to output the mapping for analysis.
+
 # Missing 
 - [x] Fix incremental tag in free_hook.
 - [x] \(Not needed) Add system logging with date.
 - [ ] Add different test cases with different containers.
 - [x] \(Deprecated) Fix __libc_malloc method.
+- [ ] Create a python grapher from the mapping.

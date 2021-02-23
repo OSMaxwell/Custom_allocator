@@ -26,10 +26,11 @@ inline void pretty_free_print(void *ptr, bool recorded) {
 }
 
 inline void pretty_map_print(void) {
-  printf("%-35s%-10s%-10s%-10s%-5s\n", "Pointer", "Size", "Allocated", "Lifetime","Reuse");
+  printf("%-35s%-10s%-10s%-10s%-5s\n", "Pointer", "Size", "Allocated",
+         "Lifetime", "Reuse");
   for (auto elem : global.StatBufMapper) {
     printf("%-35p%-10i%-10i%-10i%-5i\n", elem.first, elem.second.size,
-           elem.second.firstUsed, elem.second.lastUsed,elem.second.use);
+           elem.second.firstUsed, elem.second.lastUsed, elem.second.use);
   }
 }
 
@@ -71,7 +72,7 @@ static void *cus_malloc_hook(size_t size, const void *caller) {
   // CAN ADD MAP HERE.
   auto it = global.StatBufMapper.find(result);
   if (it == global.StatBufMapper.end()) {
-    global.StatBufMapper.insert({result, ptr_id(size,global.counter)});
+    global.StatBufMapper.insert({result, ptr_id(size, global.counter)});
   } else {
     it->second.size = size;
     it->second.use++;
