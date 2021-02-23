@@ -5,7 +5,7 @@ This is a malloc()/ free() hook used to track memory (de)allocations.
 The goal is to have a simple minimal _.cpp_  and _.h_ files to include in debug mode to evaluate and study lifetime of C++ containers (or any element that uses <memory> melloc).
 
 Currently malloc_hook has two version (different implementations):
-- __libc_malloc:
+- __libc_malloc: (**DEPRECATED**)
 
     This is currently not working as there is a problem with linking and GCC/G++ to provide this reference. However, we believe that is solved, this should be a more effecient method.
 
@@ -19,16 +19,18 @@ Both methods save address and size of memory in an external struct/array for fut
 # Screenshots
 _taken from terminal:_
 
-80     malloc    0x56361441c4f0                     4                   
-81     malloc    0x56361441c510                     8                   
-82     free      0x56361441c4f0                     
-82     malloc    0x56361441c4f0                     16                  
-83     free      0x56361441c510                     
-83     malloc    0x56361441c7a0                     32                  
-84     free      0x56361441c4f0                     
-84     malloc    0x56361441c590                     64                  
-85     free      0x56361441c7a0                     
-85     malloc    0x56361441c8e0                     64 
+|Counter|Operation|Pointer|Size|
+|-------|----------|--------------|----|
+|80     |malloc    |0x56361441c4f0|   4|                   
+|81     |malloc    |0x56361441c510|   8|                  
+|82     |free      |0x56361441c4f0|    |
+|82     |malloc    |0x56361441c4f0|  16|                  
+|83     |free      |0x56361441c510|    |                  
+|83     |malloc    |0x56361441c7a0|  32|                  
+|84     |free      |0x56361441c4f0|    |                  
+|84     |malloc    |0x56361441c590|  64|                  
+|85     |free      |0x56361441c7a0|    |                
+|85     |malloc    |0x56361441c8e0|  64| 
 
 
 # Compile
@@ -39,7 +41,7 @@ g++ -o main.o main.cpp -Wno-deprecated-declarations
 As the current version is using **__malloc_hook** method, no particular std/lib version is required.
 
 # Missing 
-- [ ] Fix incremental tag in free_hook.
-- [ ] \(Optional) Add system logging with date.
+- [x] Fix incremental tag in free_hook.
+- [x] \(Not needed) Add system logging with date.
 - [ ] Add different test cases with different containers.
-- [ ] Fix __libc_malloc method.
+- [x] \(Deprecated) Fix __libc_malloc method.

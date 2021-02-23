@@ -24,15 +24,16 @@ void case_one_vec() {
   for (int i = 0; i < 16; i++) {
     v1.push_back(-i);
   }
-  printf("Vector size : %i", v1.size());
+  printf("Vector size : %i\n", v1.size());
   for (int i = 0; i < v1.size(); i++) {
     printf("%i ", v1[i]);
   }
+  printf("\n");
 }
 
 void case_vec_in_vec() {
   int col = 1;
-  int row = 16;
+  int row = 6;
   int num = 0;
   cus_hook_init();
   std::vector<std::vector<int>> v2;
@@ -72,12 +73,14 @@ int main() {
 #else
   std::cout << "-----RELEASE MODE---- \n\n";
 #endif
-  case_vec_in_vec();
+  case_one_vec();
 
   // final print
-  for (int i = 0; i < global.tag; i++) {
-    printf("%p,%d\n", global.address_table[i], global.size_table[i]);
-  }
-  printf("This is : %p", *global.address_table);  // Hmm???????....
+  /*   for (int i = 0; i < global.tag; i++) {
+      printf("%p,%d\n", global.address_table[i], global.size_table[i]);
+    }
+    printf("This is : %p", *global.address_table);  // Hmm???????.... */
+  pretty_map_print();
   printf("\n--------***OVER***~~------------------------\n");
+  //done_hook();
 }

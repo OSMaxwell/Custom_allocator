@@ -1,18 +1,12 @@
 #ifndef MALLOC_HOOK_H
 #define MALLOC_HOOK_H
-//#include <map>
+#include <map>
 
-#define ARRAY_SIZE 200 
-
-
-// Contains necessary information about Buffer to
-// container Tag bindings.
+// Contains necessary information about Buffer bindings.
 struct GLOBAL {
-  void* address_table[ARRAY_SIZE];
-  size_t size_table[ARRAY_SIZE];
-  //std::map<void*, size_t> TagToStaticBuf;  // {ADDRESS,SIZE}
-  int tag = 0;
-};  // Global
+  std::multimap<void*, std::pair<size_t,int>> StatBufMapper;  // {ADDRESS,{SIZE,LIFETIME}}
+  int counter = 0;  // A timer-like variable to store allocs and frees
+};                  // Global
 
 extern GLOBAL global;
 
